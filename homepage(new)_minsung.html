@@ -11,7 +11,7 @@
             font-family: Arial, sans-serif;
             background-image: url('wallpaper2.jpg');
             background-size: cover;
-            background-attachment: scroll; /* 배경 움직임 허용 */
+            background-attachment: scroll;
             background-position: center top;
             display: flex;
             flex-direction: column;
@@ -190,7 +190,7 @@
 
 <!-- 두 번째 박스 (음악 플레이어) -->
 <div class="music-box" id="musicBox">
-    <h2>여긴 나중에 꾸미겠습니다 일단 노래 재생</h2>
+    <h2>잔잔한 팝송 재생</h2>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/K4DyBUG242c?autoplay=1&loop=1&playlist=K4DyBUG242c" title="YouTube video player" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 
@@ -199,9 +199,9 @@
 </footer>
 
 <script>
-    // 배경 패럴랙스 효과
+    // 패럴랙스 효과로 배경이 천천히 움직이도록 설정
     window.addEventListener("scroll", function () {
-        const scrollPosition = window.scrollY * 0.1; // 스크롤에 따라 움직이는 비율 조정
+        const scrollPosition = window.scrollY * 0.77; // 배경 움직임을 스크롤의 20% 속도로 설정
         document.body.style.backgroundPosition = `center ${scrollPosition}px`;
     });
 
