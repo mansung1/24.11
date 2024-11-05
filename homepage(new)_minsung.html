@@ -33,17 +33,49 @@
             }
         }
 
-        /* 콘텐츠 박스 스타일 */
+        /* 큰 외부 박스 스타일 */
         .content-box {
-            background-color: rgba(50, 50, 50, 0.85);
+            background-color: rgba(30, 30, 30, 0.9);
             border-radius: 10px;
             padding: 20px;
             max-width: 800px;
             width: 90%;
-            margin: 10px;
+            margin: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             color: #fff;
             animation: slideDown 1s ease-out;
+        }
+
+        /* 앱 아이콘 스타일 */
+        .icons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            gap: 15px;
+        }
+
+        .app-icon {
+            background-color: rgba(200, 200, 200, 0.5);
+            border-radius: 10px;
+            padding: 15px;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, background-color 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        .app-icon img {
+            width: 60%;
+            height: auto;
+        }
+
+        .app-icon:hover {
+            transform: scale(1.1);
+            background-color: rgba(200, 200, 200, 0.7);
         }
 
         /* 화살표 버튼 스타일 */
@@ -53,10 +85,35 @@
             color: white;
             margin: 20px;
             transition: transform 0.3s;
+            position: relative;
         }
 
-        /* 두 번째 박스 스타일 */
-        .music-box {
+        .arrow:hover {
+            transform: scale(1.2); /* 마우스 오버 시 확대 */
+        }
+
+        /* 툴팁 스타일 */
+        .tooltip {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .arrow:hover .tooltip {
+            opacity: 1;
+        }
+
+        /* 음악 박스 스타일 */
+        .music-box, .about-box {
             display: none;
             background-color: rgba(50, 50, 50, 0.85);
             border-radius: 10px;
@@ -66,7 +123,6 @@
             margin: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             color: #fff;
-            animation: slideDown 1s ease-out;
         }
 
         /* 헤더 스타일 */
@@ -80,51 +136,6 @@
             height: 100px;
         }
 
-        /* aside 스타일 */
-        aside {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .icons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .icons img {
-            width: 60px;
-            height: auto;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .icons img:hover {
-            transform: scale(1.1);
-        }
-
-        /* 테이블 스타일 */
-        table {
-            width: 100%;
-            text-align: center;
-            border-collapse: collapse;
-            background-color: rgba(70, 70, 70, 0.8);
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        th, td {
-            padding: 10px;
-            border: 1px solid #ddd;
-        }
-
-        caption {
-            caption-side: top;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
         /* 푸터 스타일 */
         footer {
             text-align: center;
@@ -135,63 +146,70 @@
 </head>
 <body>
 
+<!-- 음악 재생 박스 (위로 이동) -->
+<div class="music-box" id="musicBox">
+    <h2>노래 재생</h2>
+    <iframe id="youtubePlayer" width="560" height="315" src="https://www.youtube.com/embed/K4DyBUG242c?loop=1&playlist=K4DyBUG242c" title="YouTube video player" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+
+<!-- 화살표 버튼 (음악 재생 박스) -->
+<div class="arrow" id="toggleArrow" onclick="toggleBox('musicBox', 'toggleArrow')">
+    ___
+    <span class="tooltip">MUSIC</span>
+</div>
+
 <div class="content-box" id="mainBox">
     <header>
         <img src="5072860.png" alt="프로필 사진">
-        <h1>민성의 홈페이지</h1>
-        <p><strong>데이터 분석가를 꿈꾸며 열심히 공부하고 있는 강민성입니다.</strong></p>
+        <h1>민성 의 홈페이지</h1>
+        <p><strong>" 데이터 분석가를 꿈꾸며 열심히 공부하고 있는 강민성입니다. "</strong></p>
     </header>
 
-    <aside>
-        <h2>관련 자료들 링크</h2>
-        <div class="icons">
-            <a href="https://python.org" target="_blank"><img src="python.webp" alt="파이썬 아이콘"></a>
-            <a href="https://www.sqltutorial.org" target="_blank"><img src="SQL.png" alt="SQL 아이콘"></a>
-            <a href="https://developer.mozilla.org/docs/Web/HTML" target="_blank"><img src="HTML.png" alt="HTML 아이콘"></a>
-            <a href="https://developer.mozilla.org/docs/Web/CSS" target="_blank"><img src="CSS.png" alt="CSS 아이콘"></a>
-            <a href="https://www.notion.so/1350e7e86d9c80ba840df63853dcb99e?pvs=4" target="_blank"><img src="notion.png" alt="노션 링크 이미지"></a>
-            <a href="https://github.com/mansung1" target="_blank"><img src="github.png" alt="깃허브 링크 이미지"></a>
+    <!-- 앱 아이콘 스타일의 자료들 링크 (한 줄에 6개 배치) -->
+    <section class="icons">
+        <div class="app-icon">
+            <a href="https://python.org" target="_blank">
+                <img src="python.webp" alt="파이썬 아이콘">
+            </a>
         </div>
-        <p class="link-text">아이콘을 클릭하여 관련 페이지로 이동하세요.</p>
-    </aside>
-
-    <section>
-        <h2>이번 학기 시간표</h2>
-        <table>
-            <caption>시간표</caption>
-            <thead>
-                <tr>
-                    <th>시간표</th>
-                    <th>월요일</th>
-                    <th>화요일</th>
-                    <th>수요일</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1교시</td>
-                    <td>파이썬</td>
-                    <td>SQL</td>
-                    <td>HTML</td>
-                </tr>
-                <tr>
-                    <td>2교시</td>
-                    <td>HTML</td>
-                    <td>파이썬</td>
-                    <td>SQL</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="app-icon">
+            <a href="https://www.sqltutorial.org" target="_blank">
+                <img src="sql.png" alt="SQL 아이콘">
+            </a>
+        </div>
+        <div class="app-icon">
+            <a href="https://developer.mozilla.org/docs/Web/HTML" target="_blank">
+                <img src="html.png" alt="HTML 아이콘">
+            </a>
+        </div>
+        <div class="app-icon">
+            <a href="https://developer.mozilla.org/docs/Web/CSS" target="_blank">
+                <img src="css.png" alt="CSS 아이콘">
+            </a>
+        </div>
+        <div class="app-icon">
+            <a href="https://www.notion.so/1350e7e86d9c80ba840df63853dcb99e?pvs=4" target="_blank">
+                <img src="notion.png" alt="노션 링크 이미지">
+            </a>
+        </div>
+        <div class="app-icon">
+            <a href="https://github.com/mansung1" target="_blank">
+                <img src="github.png" alt="깃허브 링크 이미지">
+            </a>
+        </div>
     </section>
 </div>
 
-<!-- 화살표 버튼 -->
-<div class="arrow" id="toggleArrow" onclick="toggleBox()">▼</div>
-
-<!-- 두 번째 박스 (음악 플레이어) -->
-<div class="music-box" id="musicBox">
-    <h2>노래 재생</h2>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/K4DyBUG242c?autoplay=1&loop=1&playlist=K4DyBUG242c" title="YouTube video player" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<!-- 소개 박스 -->
+<div class="arrow" id="toggleAboutArrow" onclick="toggleBox('aboutBox', 'toggleAboutArrow')">
+    ___
+    <span class="tooltip">ABOUT ME?</span>
+</div>
+<div class="about-box" id="aboutBox">
+    <h2>소개</h2>
+    <p>안녕하세요, 저는 데이터를 통해 인사이트를 발견하고 문제를 해결하는 것을 좋아하는 데이터 분석가 지망생 강민성입니다.</p>
+    <p><strong>MBTI:</strong> INTJ</p>
+    <p> >> 저는 금융권 데이터 분석에 관심이 있으며 이를 통해 경기 예측과 투자 지표로 활용하는 것에 큰 관심을 가지고 있습니다. 관심 있는 분야에는 깊이 몰두하는 성격을 가지고 있으며 분석을 통해 실제로 의미 있는 결과를 도출해내고, 이를 실질적인 의사결정에 반영하는 데에 흥미를 느낍니다.</p>
 </div>
 
 <footer>
@@ -201,23 +219,20 @@
 <script>
     // 패럴랙스 효과로 배경이 천천히 움직이도록 설정
     window.addEventListener("scroll", function () {
-        const scrollPosition = window.scrollY * 0.79; // 배경 움직임을 스크롤의 79% 속도로 설정
+        const scrollPosition = window.scrollY * 0.79;
         document.body.style.backgroundPosition = `center ${scrollPosition}px`;
     });
 
-    function toggleBox() {
-        const mainBox = document.getElementById("mainBox");
-        const musicBox = document.getElementById("musicBox");
-        const toggleArrow = document.getElementById("toggleArrow");
+    function toggleBox(boxId, arrowId) {
+        const box = document.getElementById(boxId);
+        const arrow = document.getElementById(arrowId);
 
-        if (musicBox.style.display === "none" || !musicBox.style.display) {
-            musicBox.style.display = "block";
-            toggleArrow.textContent = "▲";
-            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        if (box.style.display === "none" || !box.style.display) {
+            box.style.display = "block";
+            arrow.textContent = "○";
         } else {
-            musicBox.style.display = "none";
-            toggleArrow.textContent = "▼";
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            box.style.display = "none";
+            arrow.textContent = "___";
         }
     }
 </script>
