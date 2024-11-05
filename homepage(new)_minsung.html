@@ -16,23 +16,25 @@
             flex-direction: column;
             align-items: center;
             color: #333;
+            overflow-y: scroll; /* 스크롤 허용 */
+            scroll-behavior: smooth;
         }
 
         /* 애니메이션 정의 */
         @keyframes slideDown {
             from {
-                transform: translateY(-50px); /* 위에서 시작 */
+                transform: translateY(-50px);
                 opacity: 0;
             }
             to {
-                transform: translateY(0); /* 원래 위치 */
+                transform: translateY(0);
                 opacity: 1;
             }
         }
 
         /* 콘텐츠 박스 스타일 */
         .content-box {
-            background-color: rgba(50, 50, 50, 0.85); /* 투명도 조절 */
+            background-color: rgba(50, 50, 50, 0.85);
             border-radius: 10px;
             padding: 20px;
             max-width: 800px;
@@ -40,7 +42,30 @@
             margin: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             color: #fff;
-            animation: slideDown 1s ease-out; /* 애니메이션 적용 */
+            animation: slideDown 1s ease-out;
+        }
+
+        /* 화살표 버튼 스타일 */
+        .arrow {
+            font-size: 2rem;
+            cursor: pointer;
+            color: white;
+            margin: 20px;
+            transition: transform 0.3s;
+        }
+
+        /* 두 번째 박스 스타일 */
+        .music-box {
+            display: none; /* 기본은 숨김 */
+            background-color: rgba(50, 50, 50, 0.85);
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 800px;
+            width: 90%;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: #fff;
+            animation: slideDown 1s ease-out;
         }
 
         /* 헤더 스타일 */
@@ -71,11 +96,11 @@
             width: 60px;
             height: auto;
             cursor: pointer;
-            transition: transform 0.3s ease; /* 부드러운 확대 효과 */
+            transition: transform 0.3s ease;
         }
 
         .icons img:hover {
-            transform: scale(1.1); /* 아이콘이 1.1배 커짐 */
+            transform: scale(1.1);
         }
 
         /* 테이블 스타일 */
@@ -83,7 +108,7 @@
             width: 100%;
             text-align: center;
             border-collapse: collapse;
-            background-color: rgba(70, 70, 70, 0.8); /* 어두운 회색 배경 */
+            background-color: rgba(70, 70, 70, 0.8);
             border-radius: 5px;
             overflow: hidden;
         }
@@ -109,18 +134,18 @@
 </head>
 <body>
 
-<div class="content-box">
+<div class="content-box" id="mainBox">
     <header>
         <img src="5072860.png" alt="프로필 사진">
         <h1>민성의 홈페이지</h1>
-        <p><strong>"데이터 분석가를 꿈꾸며 열심히 공부하고 있는 강민성입니다."</strong></p>
+        <p><strong>데이터 분석가를 꿈꾸며 열심히 공부하고 있는 강민성입니다.</strong></p>
     </header>
 
     <aside>
         <h2>관련 자료들 링크</h2>
         <div class="icons">
             <a href="https://python.org" target="_blank"><img src="python.webp" alt="파이썬 아이콘"></a>
-            <a href="https://www.sqltutorial.org" target="_blank"><img src="SQL.png" alt="SQL 아이콘"></a>
+            <a href="https://www.sqltutorial.org" target="_blank"><img src="sql.png" alt="SQL 아이콘"></a>
             <a href="https://developer.mozilla.org/docs/Web/HTML" target="_blank"><img src="HTML.png" alt="HTML 아이콘"></a>
             <a href="https://developer.mozilla.org/docs/Web/CSS" target="_blank"><img src="CSS.png" alt="CSS 아이콘"></a>
             <a href="https://www.notion.so/1350e7e86d9c80ba840df63853dcb99e?pvs=4" target="_blank"><img src="notion.png" alt="노션 링크 이미지"></a>
@@ -159,9 +184,36 @@
     </section>
 </div>
 
+<!-- 화살표 버튼 -->
+<div class="arrow" id="toggleArrow" onclick="toggleBox()">▼</div>
+
+<!-- 두 번째 박스 (음악 플레이어) -->
+<div class="music-box" id="musicBox">
+    <h2>잔잔한 팝송 재생</h2>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/K4DyBUG242c?autoplay=1&loop=1&playlist=K4DyBUG242c" title="YouTube video player" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+
 <footer>
     <p>연락처: example@email.com | © 2024 민성의 홈페이지</p>
 </footer>
+
+<script>
+    function toggleBox() {
+        const mainBox = document.getElementById("mainBox");
+        const musicBox = document.getElementById("musicBox");
+        const toggleArrow = document.getElementById("toggleArrow");
+
+        if (musicBox.style.display === "none" || !musicBox.style.display) {
+            musicBox.style.display = "block";
+            toggleArrow.textContent = "▲"; // 화살표 위로 변경
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        } else {
+            musicBox.style.display = "none";
+            toggleArrow.textContent = "▼"; // 화살표 아래로 변경
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    }
+</script>
 
 </body>
 </html>
