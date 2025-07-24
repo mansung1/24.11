@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>민성의 홈페이지</title>
+    <title>강민성의 데이터 분석 포트폴리오</title>
     <style>
-        /* 전체 배경 이미지 설정 */
+        /* 기존 스타일 유지, 추가 스타일 */
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -21,7 +21,7 @@
             scroll-behavior: smooth;
         }
 
-        /* 애니메이션 정의 */
+        /* 애니메이션 정의 (기존 유지) */
         @keyframes slideDown {
             from {
                 transform: translateY(-50px);
@@ -43,8 +43,8 @@
             10%, 90% { opacity: 1; }
         }
 
-        /* 큰 외부 박스 스타일 */
-        .content-box, .music-box, .about-box {
+        /* 박스 스타일 (기존 유지, 포트폴리오 섹션 추가) */
+        .content-box, .music-box, .about-box, .projects-box, .skills-box, .experience-box, .contact-box {
             background-color: rgba(30, 30, 30, 0.9);
             border-radius: 10px;
             padding: 20px;
@@ -58,33 +58,31 @@
             transition: background-color 0.3s ease; /* 박스 밝기 전환 */
         }
 
-        /* 밝은 모드로 전환 시 배경색 */
         .light-mode {
             background-color: rgba(80, 80, 80, 0.9);
         }
 
-        /* 애니메이션 적용 */
         .animated {
-            display: block; /* 애니메이션 적용 시 보이게 함 */
+            display: block;
             animation: slideDown 1s ease-out;
         }
 
-        /* 타이핑 텍스트 스타일 */
         .typing-text {
             font-size: 1.2rem;
             white-space: nowrap;
             overflow: hidden;
             border-right: 3px solid;
-            width: 100%; /* 박스 크기를 고정 */
-            max-width: 100%; /* 최대 너비 설정 */
+            width: 100%;
+            max-width: 100%;
             animation: typing 3s steps(30) forwards;
             display: inline-block;
         }
 
-        /* 앱 아이콘 스타일 */
+        /* 아이콘 섹션 (Skills) */
         .icons {
             display: flex;
             justify-content: space-around;
+            flex-wrap: wrap;
             margin-top: 20px;
             gap: 15px;
         }
@@ -93,14 +91,16 @@
             background-color: rgba(200, 200, 200, 0.5);
             border-radius: 10px;
             padding: 15px;
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             transition: transform 0.3s ease, background-color 0.3s;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
             cursor: pointer;
+            text-align: center;
         }
 
         .app-icon img {
@@ -108,12 +108,64 @@
             height: auto;
         }
 
+        .app-icon p {
+            margin-top: 10px;
+            font-size: 0.8rem;
+            color: #fff;
+        }
+
         .app-icon:hover {
             transform: scale(1.1);
             background-color: rgba(200, 200, 200, 0.7);
         }
 
-        /* 화살표 버튼 스타일 */
+        /* 프로젝트 카드 스타일 */
+        .project-card {
+            background-color: rgba(50, 50, 50, 0.8);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: left;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            font-size: 0.9rem;
+        }
+
+        .project-card a {
+            color: #4da6ff;
+            text-decoration: none;
+        }
+
+        /* 연락 폼 스타일 */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        input, textarea {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4da6ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* 화살표 버튼 (기존 유지) */
         .arrow {
             font-size: 1rem;
             cursor: pointer;
@@ -128,7 +180,7 @@
             transform: scale(1.2);
         }
 
-        /* 헤더 스타일 */
+        /* 헤더와 푸터 (기존 유지) */
         header {
             text-align: center;
             padding: 20px;
@@ -140,7 +192,6 @@
             height: 110px;
         }
 
-        /* 전구 아이콘 및 안내 문구 스타일 */
         .bulb {
             position: absolute;
             top: 0;
@@ -165,7 +216,6 @@
             text-align: center;
         }
 
-        /* 푸터 스타일 */
         footer {
             text-align: center;
             color: white;
@@ -175,98 +225,168 @@
 </head>
 <body>
 
-<!-- 음악 재생 박스 (위로 이동) -->
+<!-- 음악 재생 박스 (기존 유지) -->
 <div class="music-box" id="musicBox">
     <h2>노래 재생</h2>
     <iframe id="youtubePlayer" width="560" height="315" src="https://www.youtube.com/embed/K4DyBUG242c?loop=1&playlist=K4DyBUG242c" title="YouTube video player" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 
-<!-- 화살표 버튼 (음악 재생 박스) -->
+<!-- 화살표 버튼 (음악) -->
 <div class="arrow" id="toggleArrow" onclick="toggleBox('musicBox', 'toggleArrow')">
     <span class="text-switch">___</span>
 </div>
 
+<!-- 메인 박스 (포트폴리오 오버뷰) -->
 <div class="content-box animated" id="mainBox">
     <header>
         <img src="5072860.png" alt="프로필 사진">
         <img src="bulb_off.png" alt="전구 아이콘" id="bulbIcon" class="bulb" onclick="toggleLightMode()">
         <div class="mode-text" id="modeText">다크</div>
-        <h1>민성의 홈페이지</h1>
-        <p class="typing-text"><strong>" 안녕하세요, 데이터 분석가를 꿈꾸며 열심히 공부하고 있는 강민성입니다. "</strong></p>
+        <h1>강민성의 데이터 분석 포트폴리오</h1>
+        <p class="typing-text"><strong>“ 안녕하세요! 누구보다 데이터를 중요시하는 ‘퀀트 데이터 사이언티스트’ 가 되고자 노력하고 있는 강민성 입니다. ”</strong></p>
     </header>
-
-    <!-- 앱 아이콘 스타일의 자료들 링크 (한 줄에 6개 배치) -->
-    <section class="icons">
-        <div class="app-icon">
-            <a href="https://python.org" target="_blank">
-                <img src="python.webp" alt="파이썬 아이콘">
-            </a>
-        </div>
-        <div class="app-icon">
-            <a href="https://www.sqltutorial.org" target="_blank">
-                <img src="SQL.png" alt="SQL 아이콘">
-            </a>
-        </div>
-        <div class="app-icon">
-            <a href="https://developer.mozilla.org/docs/Web/HTML" target="_blank">
-                <img src="HTML.png" alt="HTML 아이콘">
-            </a>
-        </div>
-        <div class="app-icon">
-            <a href="https://developer.mozilla.org/docs/Web/CSS" target="_blank">
-                <img src="CSS.png" alt="CSS 아이콘">
-            </a>
-        </div>
-        <div class="app-icon">
-            <a href="https://www.notion.so/1350e7e86d9c80ba840df63853dcb99e?pvs=4" target="_blank">
-                <img src="notion.png" alt="노션 링크 이미지">
-            </a>
-        </div>
-        <div class="app-icon">
-            <a href="https://github.com/mansung1" target="_blank">
-                <img src="github.png" alt="깃허브 링크 이미지">
-            </a>
-        </div>
-    </section>
 </div>
 
-<!-- 소개 박스 -->
+<!-- 소개 박스 (기존 유지, About - 보강) -->
 <div class="arrow" id="toggleAboutArrow" onclick="toggleBox('aboutBox', 'toggleAboutArrow')">
     <span class="text-switch">___</span>
 </div>
 <div class="about-box" id="aboutBox">
     <h2>소개</h2>
-    <p>안녕하세요, 저는 데이터를 통해 인사이트를 발견하고 문제를 해결하는 것을 좋아하는 데이터 분석가 지망생 강민성입니다.</p>
-    <p>제 MBTI는 INTJ이며 취미는 운동, 주식 투자, 뉴스 보기, 웹툰 보기, 여행 등이 있습니다. </p>
-    <p>저는 금융권 데이터 분석에 관심이 있으며 이를 통해 경기 예측과 투자 지표로 활용하는 것에 큰 관심을 가지고 있습니다. </p>
-    <p>관심 있는 분야에는 깊이 몰두하는 성격을 가지고 있으며 분석을 통해 실제로 의미 있는 결과를 도출해내고, 이를 실질적인 의사결정에 반영하는 데에도 흥미를 느낍니다.</p>
+    <p>안녕하세요, 저는 데이터를 통해 인사이트를 발견하고 문제를 해결하는 것을 좋아하는 데이터 분석가 지망생 강민성입니다. 특히 금융권 데이터 분석에 관심이 있으며 이를 통해 경기 예측과 투자 지표로 활용하는 것에 큰 관심을 가지고 있습니다. </p>
+    <p>제 MBTI는 INTJ이며 취미는 운동, 주식 투자, 뉴스 보기, 웹툰 보기, 여행 등이 있습니다. 관심 있는 분야에는 깊이 몰두하는 성격을 가지고 있으며 분석을 통해 실제로 의미 있는 결과를 도출해내고, 이를 실질적인 의사결정에 반영하는 데에도 흥미를 느낍니다.</p>
+    <p>핵심 역량으로는 기획 및 문서화, 데이터 수집 및 관리, 데이터 분석, LLM 활용 능력, 시사 관심 및 주식시장 분석을 들 수 있습니다. 주식 데이터는 제가 가장 관심있고 분석하고 싶은 데이터 중 하나로, 매일 주요 뉴스와 투자 전략을 정리한 보고서를 작성하며 실제 주식 투자 경험을 쌓고 있습니다. (보고서 예시 링크)</p>
+</div>
+
+<!-- Skills 섹션 (기술 스택으로 업데이트) -->
+<div class="arrow" id="toggleSkillsArrow" onclick="toggleBox('skillsBox', 'toggleSkillsArrow')">
+    <span class="text-switch">___</span>
+</div>
+<div class="skills-box" id="skillsBox">
+    <h2>Skills & Tools</h2>
+    <section class="icons">
+        <div class="app-icon">
+            <a href="https://python.org" target="_blank">
+                <img src="python.webp" alt="파이썬 아이콘">
+            </a>
+            <p>Python: 데이터 처리, 크롤링, 모델링 (Pandas, NumPy, Scikit-learn, PyTorch, Hugging Face 등)</p>
+        </div>
+        <div class="app-icon">
+            <a href="https://www.sqltutorial.org" target="_blank">
+                <img src="SQL.png" alt="SQL 아이콘">
+            </a>
+            <p>SQL: 테이블 생성/관리, 쿼리 (SQLD 자격증 보유)</p>
+        </div>
+        <div class="app-icon">
+            <a href="https://developer.mozilla.org/docs/Web/HTML" target="_blank">
+                <img src="HTML.png" alt="HTML 아이콘">
+            </a>
+            <p>HTML: 웹 개발 기초, 포트폴리오 페이지 구축</p>
+        </div>
+        <div class="app-icon">
+            <a href="https://developer.mozilla.org/docs/Web/CSS" target="_blank">
+                <img src="CSS.png" alt="CSS 아이콘">
+            </a>
+            <p>CSS: 스타일링, UI 디자인</p>
+        </div>
+        <div class="app-icon">
+            <a href="https://www.notion.so/1350e7e86d9c80ba840df63853dcb99e?pvs=4" target="_blank">
+                <img src="notion.png" alt="노션 링크 이미지">
+            </a>
+            <p>Notion: 프로젝트 관리, 협업</p>
+        </div>
+        <div class="app-icon">
+            <a href="https://github.com/mansung1" target="_blank">
+                <img src="github.png" alt="깃허브 링크 이미지">
+            </a>
+            <p>GitHub: 코드 저장소, 협업 (GitHub Flow 경험)</p>
+        </div>
+    </section>
+    <p>기타: AI (ChatGPT, Grok, Perplexity), 협력 도구 (Slack, Google Drive), 웹 (JavaScript, Chart.js), 클라우드 (AWS EC2, Airflow, PySpark)</p>
+</div>
+
+<!-- Projects 섹션 (제공된 프로젝트로 업데이트) -->
+<div class="arrow" id="toggleProjectsArrow" onclick="toggleBox('projectsBox', 'toggleProjectsArrow')">
+    <span class="text-switch">___</span>
+</div>
+<div class="projects-box" id="projectsBox">
+    <h2>Projects</h2>
+    <div class="project-card">
+        <h3>👥 ML기반 악성 URL 판별 서비스 (프로젝트 링크)</h3>
+        <p>개요: 2023.3 ~ 2023.10 / 팀 5명 | 포지션: 데이터 수집, 전처리, 모델링 | 성과: 한국융합보안학회 2023 하계 학술대회 장려상 수상</p>
+        <p>Kaggle, OpenPhish에서 최신 악성 URL 데이터를 수집, 분석하여 악성 URL로 인해 발생가능한 피해를 최소화 하는것을 목표로 프로젝트 기획. URL의 유효 특징값 추출 후 복수 모델에서 다중 다수결 방식으로 예측 결과를 도출, OpenPhish에서 실시간 크롤링하여 데이터셋을 자동 최신화후 파인튜닝 적용하는 부분 주도.</p>
+        <p>엔지니어적인 부분뿐만 아니라 규칙 기반의 기호·패턴 구조를 갖는 URL 특성에 맞게 전처리 설계와 특징값 선별 등의 데이터 구조 분석 및 연구에도 많은 시간을 소요해 예측 성능 확대. 모델링 과정속 데이터 맥락 파악의 중요성 인지 및 경험.</p>
+        <p>Overfitting 문제를 해결하기 위해 특징값의 학습 기여도 분석 및 정규화 적용, 최신 URL 패턴 연구논문을 참고한 특징값 선별로 모델 경량화 및 일반화 성능 향상 시도. URL 특징값 추출 후 DT, KNN, GNB, MLP, RF 등 다중 모델을 테스트, 다수결 방식으로 예측 결과 도출. Random Forest 기반 앙상블로 93.86% 정확도 달성.</p>
+        <p>Airflow 미적용으로 단순 time 모듈 기반 자동화에 한정, DB 연동 미구현. 향후 Airflow를 활용한 재학습 파이프라인과 서비스 배포 계획.</p>
+        <p>[주요 기술] 언어 및 환경: Python, Google Colab (TPU 활용) | 데이터 처리: pandas, NumPy | 크롤링: requests, BeautifulSoup, urllib | 모델링: scikit-learn (Random Forest, Stacking, SVM, ...), joblib | 시각화: matplotlib, seaborn</p>
+        <a href="프로젝트 링크" target="_blank">프로젝트 링크</a>
+    </div>
+    <div class="project-card">
+        <h3>👥 무신사 리뷰 종합 및 분석 서비스 (프로젝트 링크)</h3>
+        <p>개요: 2025.1~2025.3 / 팀 4명 | 포지션: 기획, 데이터 수집, 감성분석 모델링</p>
+        <p>무신사를 비롯한 쇼핑몰 사이트의 리뷰 데이터를 실시간 자동으로 수집,분석하여 모니터링하고 결과를 시각화된 대시보드와 LLM을 활용한 피드백 형태로 제공하여 쇼핑몰 운영자 혹은 판매자의 매출 증진에 기여하기 위한 프로젝트.</p>
+        <p>기획, 데이터 수집, AI 아키텍처 설계 및 구현, 산출물 관리, 서비스 개발(EC2,FE,BE)과 배포(AWS)까지의 전반적 과정 경험. 크롤링+전처리(pyspark)+적재(MySQL) 과정 airflow DAG자동화 → 크롤링 기능 개발 및 토픽, 분석 모델을 적용한 결과를 DB 적재하여 저장하는 과정까지의 파이프라인 설계 참여.</p>
+        <p>감성분석 모델링 과정 주도, 리뷰 데이터의 특성에 맞게 Google Natural Language API를 활용해 일관적인 감성 분석 라벨링을 진행, FocalLoss로 긍정의 비율이 높은 리뷰 데이터의 불균형을 처리. KoBERT모델 베이스로 성능 확보.</p>
+        <p>학습 과정에서 EC2인스턴스에서 할당된 GPU VRAM용량이 초과되어 OOM에러 발생, torch.cuda.amp 모듈로 소모되는 GPU자원을 축소하여 최적화 및 관련 문제 해결.</p>
+        <p>무신사의 1977개 제품, 56만개의 리뷰 데이터 분석 결과 / 감성 분석 모델(KoBERT기반) acc 93%, 서비스 특성에 맞게 부정 데이터에 대한 예측 성능에 집중(Bad acc 97%) / 토픽 분석 모델(KLUE-BERT기반) acc 95% 정확도 달성.</p>
+        <p>chart.js를 활용한 시각화 자료, OpenAI LLM api을 활용한 피드백 자료를 생성. 네이버 스토어 등 다중 쇼핑몰/제품군 점차 확장 계획, 볼륨이 큰 프로젝트 진행시 단순 버전에 따른 코드 공유가 아닌 GitHub Flow 기반 CI/CD 파이프라인 도입으로 협업 효율화 개선 필요성 인지.</p>
+        <p>[주요기술] 언어 및 환경: Python, Anaconda, Jupyter, Visual Studio Code(Ubuntu) | 크롤링: Selenium, BeautifulSoup, Chrome | 데이터 파이프라인: Apache Airflow(DAG), PySpark , Hadoop/HDFS, Redis | 데이터베이스: MySQL | 모델링: PyTorch (KoBERT,KLUE-BERT), Hugging Face, CUDA/cuDNN | 웹 서비스: FastAPI, WebSocket, Chart.js(시각화), HTML/JS/CSS (UI) | 클라우드/배포: AWS EC2</p>
+        <a href="프로젝트 링크" target="_blank">프로젝트 링크</a>
+    </div>
+</div>
+
+<!-- Experience & Education 섹션 (학력 및 자격증으로 업데이트) -->
+<div class="arrow" id="toggleExperienceArrow" onclick="toggleBox('experienceBox', 'toggleExperienceArrow')">
+    <span class="text-switch">___</span>
+</div>
+<div class="experience-box" id="experienceBox">
+    <h2>Experience & Education</h2>
+    <p><strong>학력:</strong> 중부대학교(고양시 캠퍼스) 정보보호학과 4.1/4.5 | 2018.3~2024.3 (병역휴학 2년 포함)</p>
+    <p><strong>자격증:</strong> 빅데이터 분석기사, SQLD, ADsP, 네트워크 관리사 2급, 운전면허 2종보통 | TOEIC 920</p>
+    <p><strong>교육/활동:</strong> 멀티캠퍼스 빅데이터 엔지니어링 교육 과정 6개월 수료 | 2024.9 ~ 2025.3 (파이썬 기초, SQL, 데이터 분석, AI학습, 딥러닝, AWS 클라우드 등) | 캡스톤 AI 동아리 활동 | 2023.3~2023.12 (팀단위 AI 기초 학습 및 미니 프로젝트)</p>
+</div>
+
+<!-- Contact 섹션 (개인 정보 추가) -->
+<div class="arrow" id="toggleContactArrow" onclick="toggleBox('contactBox', 'toggleContactArrow')">
+    <span class="text-switch">___</span>
+</div>
+<div class="contact-box" id="contactBox">
+    <h2>Contact Me</h2>
+    <p>Mail: data_kang3701@gmail.com | Phone: 010-5443-1898 | GitHub: <a href="https://github.com/mansung1" target="_blank">github.com/mansung1</a></p>
+    <form action="/submit-form" method="post"> <!-- 실제 서버 URL로 변경 -->
+        <input type="text" placeholder="이름" required>
+        <input type="email" placeholder="이메일" required>
+        <textarea placeholder="메시지" required></textarea>
+        <button type="submit">보내기</button>
+    </form>
 </div>
 
 <footer>
-    <p>연락처: example@email.com | © 2024 민성의 홈페이지</p>
+    <p>연락처: data_kang3701@gmail.com | © 2024 강민성의 포트폴리오</p>
 </footer>
 
 <script>
-    // 패럴랙스 효과로 배경이 천천히 움직이도록 설정
+    // 패럴랙스 효과 (기존 유지)
     window.addEventListener("scroll", function () {
         const scrollPosition = window.scrollY * 0.79;
         document.body.style.backgroundPosition = `center ${scrollPosition}px`;
     });
 
+    // 토글 함수 (기존 유지, 새로운 박스에도 적용)
     function toggleBox(boxId, arrowId) {
         const box = document.getElementById(boxId);
         const arrow = document.getElementById(arrowId);
 
         if (box.classList.contains('animated')) {
-            box.classList.remove('animated'); // 이미 열려 있을 때 애니메이션 제거
+            box.classList.remove('animated');
             box.style.display = "none";
         } else {
-            box.classList.add('animated'); // 닫힌 상태에서 열릴 때 애니메이션 추가
+            box.classList.add('animated');
             box.style.display = "block";
         }
     }
 
-    // 작대기와 안내 문구 번갈아가며 표시
+    // 텍스트 토글 (새로운 화살표에도 추가)
     function toggleText(elementId, text1, text2, interval) {
         const element = document.getElementById(elementId);
         let showingText1 = true;
@@ -279,14 +399,19 @@
 
     toggleText('toggleArrow', '___', '클릭해 음악 재생', 3000);
     toggleText('toggleAboutArrow', '___', '클릭해 자기소개 확인', 3000);
+    toggleText('toggleSkillsArrow', '___', '클릭해 스킬 확인', 3000);
+    toggleText('toggleProjectsArrow', '___', '클릭해 프로젝트 확인', 3000);
+    toggleText('toggleExperienceArrow', '___', '클릭해 경험 확인', 3000);
+    toggleText('toggleContactArrow', '___', '클릭해 연락하기', 3000);
 
-    // 전구 클릭 시 밝기 전환
+    // 밝기 모드 토글 (기존 유지, 새로운 박스 추가)
     let lightMode = false;
     function toggleLightMode() {
         lightMode = !lightMode;
-        document.getElementById('mainBox').classList.toggle('light-mode', lightMode);
-        document.getElementById('musicBox').classList.toggle('light-mode', lightMode);
-        document.getElementById('aboutBox').classList.toggle('light-mode', lightMode);
+        const boxes = ['mainBox', 'musicBox', 'aboutBox', 'skillsBox', 'projectsBox', 'experienceBox', 'contactBox'];
+        boxes.forEach(id => {
+            document.getElementById(id).classList.toggle('light-mode', lightMode);
+        });
         document.getElementById('bulbIcon').src = lightMode ? 'bulb_on.png' : 'bulb_off.png';
         document.getElementById('modeText').textContent = lightMode ? '라이트' : '다크';
     }
