@@ -526,7 +526,7 @@ h1,h2,h3,strong{color:var(--heading)}
           <div>
             <div class="eyebrow">SELECTED WORK</div>
             <h2 id="projects-title">결과뿐 아니라 판단 과정까지 설명하는 프로젝트</h2>
-            <p class="section-lead">카드를 누르면 현재 화면 위에 상세 Case Study가 열립니다.</p>
+            <p class="section-lead">카드를 누르면 현재 화면 위에 자세한 내용이 열립니다.</p>
           </div>
 
           <div class="project-controls" aria-label="프로젝트 가로 이동">
@@ -546,7 +546,7 @@ h1,h2,h3,strong{color:var(--heading)}
               <h3>시장 미시구조 기반 금융 시계열 예측 모델 및 데이터 파이프라인</h3>
               <p>약 1,500개 종목의 실시간·일봉 데이터를 직접 수집·검증하고 시계열 모델과 OOS 평가를 반복하는 장기 개인 프로젝트입니다.</p>
               <div class="tags"><span>Python</span><span>PyTorch</span><span>DuckDB</span><span>Parquet</span></div>
-              <div class="card-link">Case Study 보기 <b>→</b></div>
+              <div class="card-link">자세히 보기 <b>→</b></div>
             </div>
           </button>
 
@@ -559,7 +559,7 @@ h1,h2,h3,strong{color:var(--heading)}
               <h3>VISIT INC · Roundpic.io Backend Development</h3>
               <p>360° 가상투어 서비스의 요금제·권한·사용량·결제 데이터를 다루는 API와 DB 구조를 설계·개발했습니다.</p>
               <div class="tags"><span>NestJS</span><span>TypeScript</span><span>MySQL</span><span>AWS</span></div>
-              <div class="card-link">Experience 보기 <b>→</b></div>
+              <div class="card-link">자세히 보기 <b>→</b></div>
             </div>
           </button>
 
@@ -572,7 +572,7 @@ h1,h2,h3,strong{color:var(--heading)}
               <h3>실시간 웹쇼핑몰 리뷰 종합 및 분석 서비스</h3>
               <p>리뷰 수집부터 Airflow ETL, KoBERT·KLUE-BERT 모델링, API와 분석 대시보드까지 연결한 팀 프로젝트입니다.</p>
               <div class="tags"><span>KoBERT</span><span>KLUE-BERT</span><span>Airflow</span><span>FastAPI</span></div>
-              <div class="card-link">Case Study 보기 <b>→</b></div>
+              <div class="card-link">자세히 보기 <b>→</b></div>
             </div>
           </button>
 
@@ -585,7 +585,7 @@ h1,h2,h3,strong{color:var(--heading)}
               <h3>Machine Learning 기반 악성 URL 판별 서비스</h3>
               <p>최신 악성 URL을 수집·피처링하고 여러 ML 모델과 피처를 비교해 판별 성능을 검증한 학부 연구 프로젝트입니다.</p>
               <div class="tags"><span>scikit-learn</span><span>OpenPhish</span><span>Feature Engineering</span></div>
-              <div class="card-link">Project 보기 <b>→</b></div>
+              <div class="card-link">자세히 보기 <b>→</b></div>
             </div>
           </button>
         </div>
@@ -1117,5 +1117,29 @@ document.querySelectorAll('[data-project-scroll]').forEach((button) => {
 });
 
   </script>
+
+<script>
+  // 일반 접속 시 브라우저가 이전 스크롤 위치를 복원하지 않도록 고정
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
+  window.addEventListener('pageshow', function () {
+    const isProjectDeepLink = /^#project-(finance|visit|review|malicious)$/.test(location.hash);
+    if (!isProjectDeepLink) {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    }
+  });
+
+  window.addEventListener('load', function () {
+    const isProjectDeepLink = /^#project-(finance|visit|review|malicious)$/.test(location.hash);
+    if (!isProjectDeepLink) {
+      requestAnimationFrame(function () {
+        window.scrollTo(0, 0);
+      });
+    }
+  });
+</script>
+
 </body>
 </html>
