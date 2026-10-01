@@ -1,0 +1,72 @@
+const modal = document.getElementById('project-modal');
+const modalContent = document.getElementById('modal-content');
+const modalLabel = document.getElementById('modal-label');
+let opener = null;
+
+function openProject(key, pushHistory = true) {
+  const template = document.getElementById(`project-${key}`);
+  if (!template) return;
+
+  modalContent.replaceChildren(template.content.cloneNode(true));
+  const article = modalContent.querySelector('.case-study');
+  modalLabel.textContent = article?.dataset.title || 'PROJECT';
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('no-scroll');
+  modalContent.scrollTop = 0;
+  modalContent.focus({ preventScroll: true });
+
+  if (pushHistory) history.pushState({ project: key }, '', `#project-${key}`);
+}
+
+function closeProject() {
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('no-scroll');
+  modalContent.replaceChildren();
+  if (opener) opener.focus({ preventScroll: true });
+}
+
+function projectFromHash() {
+  const match = location.hash.match(/^#project-(finance|review|visit|malicious)$/);
+  return match ? match[1] : null;
+}
+
+function goBackFromModal() {
+  if (history.state?.project) history.back();
+  else {
+    history.replaceState({}, '', `${location.pathname}${location.search}`);
+    closeProject();
+  }
+}
+
+document.querySelectorAll('[data-project]').forEach((element) => {
+  element.addEventListener('click', () => {
+    opener = element;
+    openProject(element.dataset.project);
+  });
+});
+
+document.querySelectorAll('[data-close-modal]').forEach((element) => {
+  element.addEventListener('click', goBackFromModal);
+});
+
+document.querySelector('[data-modal-back]').addEventListener('click', goBackFromModal);
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && modal.classList.contains('open')) goBackFromModal();
+});
+
+window.addEventListener('popstate', () => {
+  const key = projectFromHash();
+  if (key) openProject(key, false);
+  else closeProject();
+});
+
+const initialProject = projectFromHash();
+if (initialProject) {
+  history.replaceState({ project: initialProject }, '', location.href);
+  openProject(initialProject, false);
+} else {
+  history.replaceState({}, '', location.href);
+}
