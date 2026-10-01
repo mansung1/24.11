@@ -1,6 +1,8 @@
 const modal = document.getElementById('project-modal');
 const modalContent = document.getElementById('modal-content');
 const modalLabel = document.getElementById('modal-label');
+const projectTrack = document.getElementById('project-track');
+
 let opener = null;
 
 function openProject(key, pushHistory = true) {
@@ -8,15 +10,20 @@ function openProject(key, pushHistory = true) {
   if (!template) return;
 
   modalContent.replaceChildren(template.content.cloneNode(true));
+
   const article = modalContent.querySelector('.case-study');
   modalLabel.textContent = article?.dataset.title || 'PROJECT';
+
   modal.classList.add('open');
   modal.setAttribute('aria-hidden', 'false');
   document.body.classList.add('no-scroll');
+
   modalContent.scrollTop = 0;
   modalContent.focus({ preventScroll: true });
 
-  if (pushHistory) history.pushState({ project: key }, '', `#project-${key}`);
+  if (pushHistory) {
+    history.pushState({ project: key }, '', `#project-${key}`);
+  }
 }
 
 function closeProject() {
@@ -24,17 +31,21 @@ function closeProject() {
   modal.setAttribute('aria-hidden', 'true');
   document.body.classList.remove('no-scroll');
   modalContent.replaceChildren();
-  if (opener) opener.focus({ preventScroll: true });
+
+  if (opener) {
+    opener.focus({ preventScroll: true });
+  }
 }
 
 function projectFromHash() {
-  const match = location.hash.match(/^#project-(finance|review|visit|malicious)$/);
+  const match = location.hash.match(/^#project-(finance|visit|review|malicious)$/);
   return match ? match[1] : null;
 }
 
 function goBackFromModal() {
-  if (history.state?.project) history.back();
-  else {
+  if (history.state?.project) {
+    history.back();
+  } else {
     history.replaceState({}, '', `${location.pathname}${location.search}`);
     closeProject();
   }
@@ -54,7 +65,9 @@ document.querySelectorAll('[data-close-modal]').forEach((element) => {
 document.querySelector('[data-modal-back]').addEventListener('click', goBackFromModal);
 
 document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape' && modal.classList.contains('open')) goBackFromModal();
+  if (event.key === 'Escape' && modal.classList.contains('open')) {
+    goBackFromModal();
+  }
 });
 
 window.addEventListener('popstate', () => {
@@ -64,9 +77,23 @@ window.addEventListener('popstate', () => {
 });
 
 const initialProject = projectFromHash();
+
 if (initialProject) {
   history.replaceState({ project: initialProject }, '', location.href);
   openProject(initialProject, false);
 } else {
   history.replaceState({}, '', location.href);
 }
+
+document.querySelectorAll('[data-project-scroll]').forEach((button) => {
+  button.addEventListener('click', () => {
+    const direction = button.dataset.projectScroll === 'next' ? 1 : -1;
+    const card = projectTrack.querySelector('.project-card');
+    const amount = (card?.offsetWidth || 350) + 16;
+
+    projectTrack.scrollBy({
+      left: amount * direction,
+      behavior: 'smooth'
+    });
+  });
+});
