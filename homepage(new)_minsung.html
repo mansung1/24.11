@@ -5,7 +5,450 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Data Scientist 강민성 포트폴리오 - Data Science, ML, Data Engineering, Backend" />
   <title>강민성 | Data Scientist Portfolio</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%0A%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%23ffffff%22%2F%3E%0A%3Crect%20x%3D%2212%22%20y%3D%2237%22%20width%3D%2210%22%20height%3D%2215%22%20rx%3D%223%22%20fill%3D%22%232f6fd5%22%2F%3E%0A%3Crect%20x%3D%2227%22%20y%3D%2227%22%20width%3D%2210%22%20height%3D%2225%22%20rx%3D%223%22%20fill%3D%22%232f6fd5%22%2F%3E%0A%3Crect%20x%3D%2242%22%20y%3D%2215%22%20width%3D%2210%22%20height%3D%2237%22%20rx%3D%223%22%20fill%3D%22%232f6fd5%22%2F%3E%0A%3C%2Fsvg%3E" />
+  <style>
+:root{
+  --bg:#fbfcfd;
+  --surface:#ffffff;
+  --surface-soft:#f5f7fa;
+  --ink:#30363d;
+  --heading:#252a31;
+  --muted:#667080;
+  --line:#dfe5ec;
+  --blue:#2f6fd5;
+  --blue-soft:#edf4ff;
+  --yellow:#d59a16;
+  --yellow-soft:#fff7df;
+  --green:#26875c;
+  --shadow:0 14px 34px rgba(25,39,58,.10);
+  --radius:18px;
+  --max:1080px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:Pretendard,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",Arial,sans-serif;
+  line-height:1.68;
+  -webkit-font-smoothing:antialiased;
+}
+button,a{font:inherit}
+a{color:inherit;text-decoration:none}
+button{color:inherit}
+img{display:block;max-width:100%}
+.container{width:min(calc(100% - 72px),var(--max));margin:0 auto}
+
+/* header */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(251,252,253,.90);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(223,229,236,.88);
+}
+.nav{height:62px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:8px;font-size:.82rem;font-weight:850;color:var(--heading)}
+.brand-mark{width:20px;height:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:3px;align-items:end}
+.brand-mark i{display:block;background:var(--blue);border-radius:3px}
+.brand-mark i:nth-child(1){height:45%}
+.brand-mark i:nth-child(2){height:72%}
+.brand-mark i:nth-child(3){height:100%}
+.nav-links{display:flex;align-items:center;gap:22px;font-size:.82rem;font-weight:750;color:#566170}
+.nav-links a:hover{color:var(--blue)}
+
+/* buttons */
+.button{
+  min-height:42px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:0 15px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:#fff;
+  font-size:.84rem;
+  font-weight:800;
+  transition:.18s ease;
+}
+.button:hover{transform:translateY(-1px);border-color:#bac7d8}
+.button.primary{background:var(--blue);border-color:var(--blue);color:#fff}
+.button-small{min-height:38px}
+
+/* typography */
+.eyebrow{
+  margin-bottom:9px;
+  color:var(--blue);
+  font-size:.86rem;
+  font-weight:900;
+  letter-spacing:.105em;
+  text-transform:uppercase;
+}
+h1,h2,h3,strong{color:var(--heading)}
+.section h2{
+  max-width:900px;
+  margin:0 0 15px;
+  font-size:clamp(1.42rem,2.2vw,1.88rem);
+  line-height:1.27;
+  letter-spacing:-.035em;
+}
+.section-lead{margin:0;color:var(--muted);font-size:.92rem}
+
+/* hero */
+.hero{padding:62px 0 66px;background:linear-gradient(180deg,#fff 0%,#fbfcfd 100%)}
+.hero-grid{display:grid;grid-template-columns:205px minmax(0,1fr);gap:46px;align-items:center}
+.profile-frame{
+  height:255px;
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:22px;
+  background:#eef2f7;
+  box-shadow:var(--shadow);
+}
+.profile-frame img{width:100%;height:100%;object-fit:cover;object-position:52% 27%}
+.hero h1{
+  margin:0 0 14px;
+  color:var(--heading);
+  font-size:clamp(2.12rem,3.7vw,2.95rem);
+  line-height:1;
+  letter-spacing:-.055em;
+}
+.hero-title{
+  margin:0 0 13px;
+  color:var(--heading);
+  font-size:clamp(1.02rem,1.35vw,1.20rem);
+  font-weight:850;
+  line-height:1.5;
+  letter-spacing:-.02em;
+}
+.hero-description{max-width:800px;margin:0;color:#586474;font-size:.96rem}
+.hero-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}
+
+/* sections */
+.section{padding:72px 0}
+.section-muted{background:var(--surface-soft);border-top:1px solid #eef1f5;border-bottom:1px solid #eef1f5}
+
+/* highlights */
+.highlights{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:26px}
+.highlight{
+  min-height:142px;
+  padding:22px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:#fff;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.highlight strong{
+  color:var(--yellow);
+  font-size:clamp(1.15rem,1.65vw,1.42rem);
+  line-height:1.25;
+  letter-spacing:-.035em;
+}
+.highlight span{display:block;margin-top:7px;color:var(--muted);font-size:.82rem}
+
+/* projects */
+.section-head-row{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:26px}
+.project-controls{display:flex;gap:8px;flex:0 0 auto}
+.project-controls button{
+  width:42px;height:42px;
+  border:1px solid var(--line);
+  border-radius:11px;
+  background:#fff;
+  cursor:pointer;
+  font-weight:900;
+  transition:.18s;
+}
+.project-controls button:hover{border-color:#b9c7d9;box-shadow:0 5px 18px rgba(25,39,58,.08)}
+.project-track{
+  display:flex;
+  gap:16px;
+  overflow-x:auto;
+  padding:4px 2px 18px;
+  scroll-snap-type:x proximity;
+  scrollbar-width:thin;
+  scrollbar-color:#c6cfda transparent;
+}
+.project-track::-webkit-scrollbar{height:8px}
+.project-track::-webkit-scrollbar-thumb{background:#c6cfda;border-radius:999px}
+.project-card{
+  position:relative;
+  flex:0 0 350px;
+  min-height:505px;
+  padding:0;
+  border:1px solid var(--line);
+  border-radius:18px;
+  overflow:hidden;
+  background:#fff;
+  text-align:left;
+  display:flex;
+  flex-direction:column;
+  cursor:pointer;
+  scroll-snap-align:start;
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+}
+.project-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#cbd6e4}
+.project-image{position:relative;height:206px;overflow:hidden;background:#eaf0f8;border-bottom:1px solid var(--line)}
+.project-image img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.status-badge{
+  position:absolute;
+  top:13px;right:13px;
+  padding:6px 10px;
+  border:1px solid rgba(38,135,92,.18);
+  border-radius:999px;
+  background:rgba(242,253,247,.94);
+  color:var(--green);
+  font-size:.7rem;
+  font-weight:900;
+  box-shadow:0 4px 14px rgba(25,39,58,.08);
+}
+.project-copy{padding:20px;display:flex;flex-direction:column;flex:1}
+.project-kicker{color:var(--blue);font-size:.72rem;font-weight:900;letter-spacing:.1em}
+.project-card h3{margin:7px 0 9px;font-size:1.04rem;line-height:1.4;letter-spacing:-.027em}
+.project-card p{margin:0;color:var(--muted);font-size:.87rem}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:15px}
+.tags span{padding:4px 7px;border-radius:7px;background:#f0f3f7;color:#576273;font-size:.66rem;font-weight:800}
+.card-link{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:18px;color:var(--blue);font-size:.81rem;font-weight:850}
+.scroll-hint{text-align:right;margin-top:6px;color:#9099a7;font-size:.72rem}
+
+/* experience */
+.experience-card{
+  display:grid;
+  grid-template-columns:155px minmax(0,1fr);
+  gap:28px;
+  margin-top:25px;
+  padding:26px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:#fff;
+}
+.experience-date{color:var(--muted);font-size:.8rem;font-weight:800}
+.experience-title-row{display:flex;justify-content:space-between;align-items:flex-start;gap:18px}
+.experience-company{color:var(--blue);font-size:.72rem;font-weight:900;letter-spacing:.08em}
+.experience-card h3{margin:3px 0 10px;font-size:1.07rem}
+.experience-card p{margin:0;color:var(--muted);font-size:.9rem}
+.experience-duration{white-space:nowrap;padding:5px 9px;border-radius:999px;background:var(--blue-soft);color:var(--blue);font-size:.7rem;font-weight:850}
+.experience-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}
+.experience-tags span{padding:5px 8px;border:1px solid var(--line);border-radius:8px;background:#fafbfd;color:#5d6877;font-size:.68rem;font-weight:750}
+.text-button{margin-top:16px;padding:0;border:0;background:none;color:var(--blue);font-weight:850;cursor:pointer}
+
+/* skills */
+.programming-panel{
+  margin-top:25px;
+  border:1px solid var(--line);
+  border-radius:17px;
+  background:#fff;
+  overflow:hidden;
+}
+.programming-panel>h3{
+  margin:0;
+  padding:18px 22px;
+  border-bottom:1px solid var(--line);
+  font-size:1rem;
+}
+.language-row{
+  display:grid;
+  grid-template-columns:190px 1fr;
+  gap:22px;
+  align-items:center;
+  padding:17px 22px;
+  border-bottom:1px solid #eef1f5;
+}
+.language-row:last-child{border-bottom:0}
+.language-name{font-weight:900;color:var(--heading)}
+.language-name span{
+  display:inline-block;
+  margin-left:8px;
+  padding:3px 7px;
+  border-radius:999px;
+  background:var(--yellow-soft);
+  color:#9a6b13;
+  font-size:.67rem;
+  vertical-align:2px;
+}
+.language-row p{margin:0;color:var(--muted);font-size:.86rem}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:13px}
+.skill-card{padding:21px;border:1px solid var(--line);border-radius:16px;background:#fff}
+.skill-card h3{margin:0 0 7px;font-size:.96rem}
+.skill-card p{margin:0;color:var(--muted);font-size:.84rem}
+
+
+.other-skills{
+  margin-top:13px;
+  padding:20px 21px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:#fff;
+}
+.other-skills h3{margin:0 0 12px;font-size:.94rem}
+.skill-pills{display:flex;flex-wrap:wrap;gap:8px}
+.skill-pills span{
+  display:inline-flex;
+  align-items:center;
+  min-height:31px;
+  padding:0 11px;
+  border:1px solid #cbdcff;
+  border-radius:999px;
+  background:#fff;
+  color:#3e4855;
+  font-size:.75rem;
+  font-weight:700;
+}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:52px;align-items:start}
+.about-copy p{margin:0 0 15px;color:#586474;font-size:.92rem}
+
+/* credentials */
+.credentials-section{background:#fff}
+.credentials{
+  display:grid;
+  grid-template-columns:.9fr .9fr 1.1fr 1.35fr;
+  border:1px solid var(--line);
+  border-radius:18px;
+  overflow:hidden;
+  background:#fff;
+}
+.credential-card{padding:21px;border-right:1px solid var(--line)}
+.credential-card:last-child{border-right:0}
+.credential-card>span{display:block;color:var(--blue);font-size:.74rem;font-weight:900;letter-spacing:.07em;text-transform:uppercase}
+.credential-card strong{display:block;margin-top:7px;font-size:.9rem;line-height:1.45}
+.credential-card p{margin:4px 0 0;color:var(--muted);font-size:.78rem}
+.credential-card p b{color:var(--heading)}
+.award-second{margin-top:14px!important}
+
+/* footer */
+.footer{padding:38px 0 44px;border-top:1px solid var(--line);background:#fff}
+.footer-content{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.footer strong{max-width:760px;font-size:1.00rem;line-height:1.5}
+.footer-actions{display:flex;gap:8px;flex:0 0 auto}
+
+
+.footer-message{display:flex;flex-direction:column;gap:4px}
+.footer-message span{color:var(--muted);font-size:.84rem}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:26px}
+.modal.open{display:flex}
+.modal-backdrop{position:absolute;inset:0;background:rgba(19,27,39,.58);backdrop-filter:blur(7px)}
+.modal-panel{
+  position:relative;
+  width:min(940px,94vw);
+  height:min(86vh,900px);
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  border:1px solid rgba(214,222,233,.95);
+  border-radius:22px;
+  background:#fff;
+  box-shadow:0 30px 100px rgba(9,17,31,.30);
+  animation:modal-in .18s ease-out;
+}
+@keyframes modal-in{from{opacity:0;transform:translateY(12px) scale(.988)}to{opacity:1;transform:none}}
+.modal-toolbar{
+  height:60px;
+  flex:0 0 60px;
+  display:grid;
+  grid-template-columns:100px 1fr 44px;
+  align-items:center;
+  padding:0 13px 0 15px;
+  border-bottom:1px solid var(--line);
+  background:rgba(255,255,255,.97);
+}
+.modal-back,.modal-close{border:0;background:transparent;cursor:pointer;color:var(--heading);font-weight:850}
+.modal-back{justify-self:start;padding:8px 10px;border-radius:10px}
+.modal-back:hover,.modal-close:hover{background:#f2f5f8}
+.modal-label{text-align:center;color:#8793a4;font-size:.72rem;font-weight:900;letter-spacing:.08em}
+.modal-close{justify-self:end;width:36px;height:36px;border-radius:50%;font-size:1.4rem}
+.modal-scroll{overflow-y:auto;outline:none}
+.case-study{padding:38px 48px 50px}
+.case-cover-wrap{position:relative}
+.case-cover{
+  width:100%;
+  height:300px;
+  margin-bottom:25px;
+  border:1px solid var(--line);
+  border-radius:17px;
+  background:#f4f6f9;
+  object-fit:cover;
+  object-position:center top;
+}
+.case-cover.contain{object-fit:contain}
+.case-status{
+  position:absolute;
+  top:15px;right:15px;
+  padding:7px 11px;
+  border-radius:999px;
+  background:#eefaf4;
+  color:var(--green);
+  font-size:.72rem;
+  font-weight:900;
+  box-shadow:0 4px 18px rgba(25,39,58,.09);
+}
+.case-study h2{margin:8px 0 13px;font-size:clamp(1.55rem,2.7vw,2.08rem);line-height:1.18;letter-spacing:-.04em}
+.case-summary{margin:0;color:#586474;font-size:.94rem}
+.case-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:24px 0 5px}
+.case-metrics div{padding:13px 14px;background:#f7f9fc;border-left:3px solid var(--blue)}
+.case-metrics strong{display:block;font-size:1.18rem}
+.case-metrics span{color:var(--muted);font-size:.69rem}
+.case-study section{padding:27px 0;border-bottom:1px solid var(--line)}
+.case-study section:last-child{border-bottom:0}
+.case-study h3{margin:0 0 9px;font-size:1.08rem}
+.case-study section p{margin:0;color:#536071;font-size:.9rem}
+.case-study ul{margin:9px 0 0;padding-left:20px;color:#536071;font-size:.89rem}
+.case-study li{margin:5px 0}
+.case-emphasis{margin-top:12px;padding:24px!important;border:1px solid #f0dfb7!important;border-radius:14px;background:#fffaf0}
+.no-scroll{overflow:hidden}
+
+
+@media(min-width:1400px){
+  .container{width:min(calc(100% - 120px),var(--max))}
+}
+
+/* responsive */
+@media(max-width:960px){
+  .hero-grid{grid-template-columns:175px 1fr;gap:30px}
+  .profile-frame{height:220px}
+  .highlights{grid-template-columns:repeat(2,1fr)}
+  .skills-grid{grid-template-columns:1fr}
+  .credentials{grid-template-columns:repeat(2,1fr)}
+  .credential-card:nth-child(2){border-right:0}
+  .credential-card:nth-child(-n+2){border-bottom:1px solid var(--line)}
+}
+@media(max-width:720px){
+  .container{width:min(calc(100% - 28px),var(--max))}
+  .nav{height:60px}
+  .nav-links{display:none}
+  .nav>.button{display:none}
+  .hero{padding:48px 0}
+  .hero-grid{grid-template-columns:1fr}
+  .profile-frame{width:142px;height:176px}
+  .hero h1{font-size:2.25rem}
+  .section{padding:58px 0}
+  .section-head-row{align-items:flex-start;flex-direction:column;gap:16px}
+  .project-controls{align-self:flex-end}
+  .project-card{flex-basis:84vw;min-height:490px}
+  .experience-card{grid-template-columns:1fr}
+  .experience-title-row{flex-direction:column;gap:6px}
+  .language-row{grid-template-columns:1fr;gap:5px}
+  .about-grid{grid-template-columns:1fr;gap:18px}
+  .credentials{grid-template-columns:1fr}
+  .credential-card{border-right:0!important;border-bottom:1px solid var(--line)}
+  .credential-card:last-child{border-bottom:0}
+  .footer-content{align-items:flex-start;flex-direction:column}
+  .modal{padding:7px}
+  .modal-panel{width:100%;height:calc(100% - 4px);border-radius:16px}
+  .case-study{padding:25px 18px 34px}
+  .case-cover{height:215px}
+  .case-metrics{grid-template-columns:1fr 1fr}
+  .modal-toolbar{height:56px;flex-basis:56px;grid-template-columns:80px 1fr 40px}
+}
+
+</style>
 </head>
 <body>
   <header class="site-header">
@@ -45,7 +488,6 @@
             <a class="button primary"
                href="https://drive.google.com/file/d/1Ti9-Dzjagppa3P-Sk60Fh5ijHyG6kDAG/view"
                target="_blank" rel="noreferrer">Resume PDF</a>
-            <a class="button" href="https://github.com/mansung1" target="_blank" rel="noreferrer">GitHub</a>
             <a class="button" href="mailto:kangms3158@gmail.com">Email</a>
           </div>
         </div>
@@ -59,15 +501,15 @@
 
         <div class="highlights">
           <div class="highlight">
-            <strong>팀 + 개인</strong>
-            <span>다수의 프로젝트 경험</span>
+            <strong>프로젝트 경험</strong>
+            <span>다수의 팀 + 개인 프로젝트 경험</span>
           </div>
           <div class="highlight">
             <strong>NLP · 공간 · 지도 · 수치</strong>
             <span>다양한 형태의 데이터 경험</span>
           </div>
           <div class="highlight">
-            <strong>6 Months</strong>
+            <strong>5개월 실무 경험</strong>
             <span>Backend Internship</span>
           </div>
           <div class="highlight">
@@ -155,7 +597,7 @@
     <section class="section section-muted" id="experience">
       <div class="container">
         <div class="eyebrow">EXPERIENCE</div>
-        <h2>실무에서 개발자와 협력하며 데이터가 활용되는 방식을 경험했습니다.</h2>
+        <h2>실무에서 개발자와 협력하며 데이터가 활용되는 과정을 경험했습니다.</h2>
 
         <div class="experience-card">
           <div class="experience-date">2025.09 — 2026.02</div>
@@ -165,7 +607,7 @@
                 <span class="experience-company">VISIT INC</span>
                 <h3>Roundpic.io Backend Development Intern</h3>
               </div>
-              <span class="experience-duration">6 Months</span>
+              <span class="experience-duration">5개월</span>
             </div>
             <p>
               Roundpic은 스마트폰·360° 카메라로 촬영한 이미지를 가상투어 콘텐츠로 구성해
@@ -214,7 +656,20 @@
           </div>
           <div class="skill-card">
             <h3>Backend / Cloud</h3>
-            <p>FastAPI · NestJS · MySQL · AWS · REST API · Git · GitHub</p>
+            <p>FastAPI · NestJS · MySQL · AWS · REST API · Git</p>
+          </div>
+        </div>
+
+        <div class="other-skills">
+          <h3>기타 활용 경험</h3>
+          <div class="skill-pills">
+            <span>웹 크롤링</span>
+            <span>Notion</span>
+            <span>문서 작성</span>
+            <span>서비스 QA</span>
+            <span>투자 데이터 기록</span>
+            <span>블로그 작성</span>
+            <span>운전 · 2종 보통</span>
           </div>
         </div>
       </div>
@@ -224,7 +679,7 @@
       <div class="container about-grid">
         <div>
           <div class="eyebrow">ABOUT</div>
-          <h2>실패 비용을 최소화해 실패 속에서 성공으로 나아갑니다.</h2>
+          <h2>실패 비용을 최소화하고 실패 속에서 성공으로 나아갑니다.</h2>
         </div>
 
         <div class="about-copy">
@@ -233,11 +688,12 @@
             결과를 검증하며 잘못된 가정을 빠르게 수정하는 방식을 중요하게 생각합니다.
           </p>
           <p>
-            주식시장과 투자 데이터에 큰 관심을 가지고 있으며, 약 2년 가까이 매일 시장의 주요 이슈와 제 견해,
-            매매 과정과 결과를 기록하고 정리해오고 있습니다. 정리한 내용을 바탕으로 가끔 주식 정보를 공유하는
-            블로그 활동도 이어가고 있습니다.
+            다양한 형태의 데이터를 관찰하고 구조를 파악해 의미를 찾는 과정 자체에 관심이 많습니다.
+            그중에서도 금융·투자 데이터에 특히 큰 관심을 가지고 있어 약 2년 가까이 시장의 주요 이슈와 견해,
+            매매 과정과 결과를 꾸준히 기록·정리해오고 있으며, 가끔 주식 정보를 공유하는 블로그 활동도 이어가고 있습니다.
           </p>
           <p>
+            꾸준함을 생활에서도 중요하게 생각해 최소 2년 이상 규칙적으로 운동을 이어오고 있습니다.
             데이터와 소프트웨어를 함께 다루며 하나의 분석이나 모델이 실제로 사용되기까지 필요한 전체 과정을
             이해하고 연결하는 Data Scientist로 성장하고자 합니다.
           </p>
@@ -255,7 +711,7 @@
 
         <div class="credential-card">
           <span>Training</span>
-          <strong>Data Engineering Bootcamp</strong>
+          <strong>Multicampus Data Engineering Bootcamp</strong>
           <p>2024.09 — 2025.03</p>
         </div>
 
@@ -278,7 +734,10 @@
 
   <footer class="footer">
     <div class="container footer-content">
-      <strong>데이터를 통해 가치를 창출하는 실무적 데이터 전문가로 성장하고 싶습니다.</strong>
+      <div class="footer-message">
+        <strong>데이터를 통해 가치를 창출하는 실무적 데이터 전문가로 성장하고 싶습니다.</strong>
+        <span>언제든 편하게 연락 부탁드립니다.</span>
+      </div>
       <div class="footer-actions">
         <a class="button" href="mailto:kangms3158@gmail.com">Email</a>
         <a class="button primary"
@@ -386,7 +845,7 @@
       </p>
 
       <div class="case-metrics">
-        <div><strong>6 Months</strong><span>Backend Internship</span></div>
+        <div><strong>5개월</strong><span>Backend Internship</span></div>
         <div><strong>NestJS</strong><span>REST API / Guard</span></div>
         <div><strong>MySQL</strong><span>요금제·사용량·결제</span></div>
         <div><strong>360°</strong><span>Insta360 Data</span></div>
