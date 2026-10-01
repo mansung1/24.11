@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Data Scientist 강민성 포트폴리오 - 금융 시계열, NLP, Data Engineering, Backend" />
+  <meta name="description" content="Data Scientist 강민성 포트폴리오 - Data Science, ML, Data Engineering, Backend" />
   <title>강민성 | Data Scientist Portfolio</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -30,13 +30,21 @@
         <div class="profile-frame">
           <img src="profile.png" alt="강민성 프로필 사진" />
         </div>
+
         <div class="hero-copy">
           <div class="eyebrow">DATA SCIENTIST · ML & DATA ENGINEERING</div>
           <h1>강민성</h1>
-          <p class="hero-title">안녕하세요. 매일 조금씩 나아가는 Data Scientist 강민성입니다.</p>
-          <p class="hero-description">완벽한 답을 기다리기보다 작은 시도와 검증을 반복하며 잘못된 가정을 빠르게 수정하고, 더 나은 방향을 찾아갑니다. 데이터와 모델을 시스템과 비즈니스에 연결해 <strong>신뢰할 수 있는 결과가 실제 가치로 이어지도록 만드는 Data Scientist</strong>로 성장하고 있습니다.</p>
+          <p class="hero-title">안녕하세요. 매일 매일 조금씩 나아가는 강민성이라고 합니다.</p>
+          <p class="hero-description">
+            데이터를 분석하는 데서 끝나지 않고, 직접 수집하고 품질을 검증한 뒤 모델링하고
+            실제 사용할 수 있는 시스템이나 서비스 형태까지 연결해보는 경험을 쌓아왔습니다.
+            작은 시도부터 검증하며 잘못된 가정을 수정하고, 분석 결과가 실제 가치로 이어지는 과정을 중요하게 생각합니다.
+          </p>
+
           <div class="hero-actions">
-            <a class="button primary" href="https://drive.google.com/file/d/16bxqWI_MHri-cz3UIk7M4w3RlvTOerbt/view?usp=sharing" target="_blank" rel="noreferrer">Resume PDF</a>
+            <a class="button primary"
+               href="https://drive.google.com/file/d/1Ti9-Dzjagppa3P-Sk60Fh5ijHyG6kDAG/view"
+               target="_blank" rel="noreferrer">Resume PDF</a>
             <a class="button" href="https://github.com/mansung1" target="_blank" rel="noreferrer">GitHub</a>
             <a class="button" href="mailto:kangms3158@gmail.com">Email</a>
           </div>
@@ -48,77 +56,126 @@
       <div class="container">
         <div class="eyebrow">PROFILE HIGHLIGHTS</div>
         <h2 id="highlights-title">데이터 수집부터 모델링, 서비스까지 연결합니다.</h2>
+
         <div class="highlights">
-          <div class="highlight"><strong>1,500+ / 80M+</strong><span>국내 주식 종목 / 1분 레코드</span></div>
-          <div class="highlight"><strong>93% / 95%</strong><span>KoBERT / KLUE-BERT Accuracy</span></div>
-          <div class="highlight"><strong>6 Months</strong><span>Backend Internship</span></div>
-          <div class="highlight"><strong>2 Awards</strong><span>프로젝트·학술 외부 평가</span></div>
+          <div class="highlight">
+            <strong>팀 + 개인</strong>
+            <span>다수의 프로젝트 경험</span>
+          </div>
+          <div class="highlight">
+            <strong>NLP · 공간 · 지도 · 수치</strong>
+            <span>다양한 형태의 데이터 경험</span>
+          </div>
+          <div class="highlight">
+            <strong>6 Months</strong>
+            <span>Backend Internship</span>
+          </div>
+          <div class="highlight">
+            <strong>2 Awards</strong>
+            <span>학술·군 복무 성과 수상</span>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="section" id="projects" aria-labelledby="projects-title">
       <div class="container">
-        <div class="eyebrow">SELECTED WORK</div>
-        <h2 id="projects-title">결과뿐 아니라 판단 과정까지 설명하는 프로젝트</h2>
-        <p class="section-lead">카드를 누르면 현재 페이지를 벗어나지 않고 상세 Case Study가 열립니다.</p>
-        <div class="project-grid">
-          <button class="project-card featured" type="button" data-project="finance">
-            <div class="project-image"><img src="finance.png" alt="금융 시계열 프로젝트 대표 이미지" /></div>
-            <div class="project-copy">
-              <span class="project-kicker">01 · FLAGSHIP</span>
-              <h3>시장 미시구조 기반 금융 시계열 예측 모델 및 데이터 파이프라인</h3>
-              <p>약 1,500개 종목의 실시간 데이터를 직접 수집·검증하고 시계열 ML과 OOS 평가를 반복하는 장기 개인 프로젝트입니다.</p>
-              <div class="tags"><span>Python</span><span>PyTorch</span><span>DuckDB</span><span>Parquet</span><span>Temporal OOS</span></div>
-              <div class="card-link">Case Study 보기 <b>→</b></div>
-            </div>
-          </button>
+        <div class="section-head-row">
+          <div>
+            <div class="eyebrow">SELECTED WORK</div>
+            <h2 id="projects-title">결과뿐 아니라 판단 과정까지 설명하는 프로젝트</h2>
+            <p class="section-lead">카드를 누르면 현재 화면 위에 상세 Case Study가 열립니다.</p>
+          </div>
 
-          <button class="project-card featured" type="button" data-project="review">
-            <div class="project-image"><img src="review.png" alt="리뷰 NLP 서비스 화면" /></div>
+          <div class="project-controls" aria-label="프로젝트 가로 이동">
+            <button type="button" data-project-scroll="prev" aria-label="이전 프로젝트">←</button>
+            <button type="button" data-project-scroll="next" aria-label="다음 프로젝트">→</button>
+          </div>
+        </div>
+
+        <div class="project-track" id="project-track">
+          <button class="project-card" type="button" data-project="finance">
+            <div class="project-image">
+              <img src="finance.png" alt="금융 시계열 프로젝트 대표 이미지" />
+              <span class="status-badge">현재 진행중</span>
+            </div>
             <div class="project-copy">
-              <span class="project-kicker">02 · NLP / DATA ENGINEERING</span>
-              <h3>실시간 웹쇼핑몰 리뷰 종합 및 분석 서비스</h3>
-              <p>리뷰 수집부터 Airflow ETL, KoBERT·KLUE-BERT 모델링, FastAPI와 요약·시각화까지 연결한 팀 프로젝트입니다.</p>
-              <div class="tags"><span>KoBERT</span><span>KLUE-BERT</span><span>Airflow</span><span>FastAPI</span><span>AWS</span></div>
+              <span class="project-kicker">01 · FLAGSHIP / PERSONAL</span>
+              <h3>시장 미시구조 기반 금융 시계열 예측 모델 및 데이터 파이프라인</h3>
+              <p>약 1,500개 종목의 실시간·일봉 데이터를 직접 수집·검증하고 시계열 모델과 OOS 평가를 반복하는 장기 개인 프로젝트입니다.</p>
+              <div class="tags"><span>Python</span><span>PyTorch</span><span>DuckDB</span><span>Parquet</span></div>
               <div class="card-link">Case Study 보기 <b>→</b></div>
             </div>
           </button>
 
           <button class="project-card" type="button" data-project="visit">
-            <div class="project-image"><img src="visit.png" alt="VISIT 360VR 프로젝트 화면" /></div>
+            <div class="project-image">
+              <img src="visit.png" alt="VISIT Roundpic 서비스 화면" />
+            </div>
             <div class="project-copy">
-              <span class="project-kicker">03 · WORK EXPERIENCE</span>
+              <span class="project-kicker">02 · WORK EXPERIENCE</span>
               <h3>VISIT INC · Roundpic.io Backend Development</h3>
-              <p>SaaS 요금제·권한·사용량·결제 데이터를 다루는 API, MySQL 구조와 Guard 기반 권한 로직을 개발했습니다.</p>
+              <p>360° 가상투어 서비스의 요금제·권한·사용량·결제 데이터를 다루는 API와 DB 구조를 설계·개발했습니다.</p>
               <div class="tags"><span>NestJS</span><span>TypeScript</span><span>MySQL</span><span>AWS</span></div>
               <div class="card-link">Experience 보기 <b>→</b></div>
             </div>
           </button>
 
-          <button class="project-card" type="button" data-project="malicious">
-            <div class="project-image"><img src="malicious.png" alt="악성 URL 판별 서비스 화면" /></div>
+          <button class="project-card" type="button" data-project="review">
+            <div class="project-image">
+              <img src="review.png" alt="웹쇼핑몰 리뷰 분석 서비스 화면" />
+            </div>
             <div class="project-copy">
-              <span class="project-kicker">04 · SECURITY ML</span>
+              <span class="project-kicker">03 · NLP / DATA ENGINEERING</span>
+              <h3>실시간 웹쇼핑몰 리뷰 종합 및 분석 서비스</h3>
+              <p>리뷰 수집부터 Airflow ETL, KoBERT·KLUE-BERT 모델링, API와 분석 대시보드까지 연결한 팀 프로젝트입니다.</p>
+              <div class="tags"><span>KoBERT</span><span>KLUE-BERT</span><span>Airflow</span><span>FastAPI</span></div>
+              <div class="card-link">Case Study 보기 <b>→</b></div>
+            </div>
+          </button>
+
+          <button class="project-card" type="button" data-project="malicious">
+            <div class="project-image">
+              <img src="malicious.png" alt="악성 URL 판별 서비스 화면" />
+            </div>
+            <div class="project-copy">
+              <span class="project-kicker">04 · SECURITY ML / RESEARCH</span>
               <h3>Machine Learning 기반 악성 URL 판별 서비스</h3>
-              <p>OpenPhish 최신 데이터를 수집·피처링·재학습하는 구조와 전통 ML 비교 및 Feature 분석을 수행했습니다.</p>
+              <p>최신 악성 URL을 수집·피처링하고 여러 ML 모델과 피처를 비교해 판별 성능을 검증한 학부 연구 프로젝트입니다.</p>
               <div class="tags"><span>scikit-learn</span><span>OpenPhish</span><span>Feature Engineering</span></div>
               <div class="card-link">Project 보기 <b>→</b></div>
             </div>
           </button>
         </div>
+
+        <div class="scroll-hint">← 좌우로 밀어 프로젝트 보기 →</div>
       </div>
     </section>
 
     <section class="section section-muted" id="experience">
       <div class="container">
         <div class="eyebrow">EXPERIENCE</div>
-        <h2>실제 서비스의 데이터 흐름을 경험했습니다.</h2>
+        <h2>실무에서 개발자와 협력하며 데이터가 활용되는 방식을 경험했습니다.</h2>
+
         <div class="experience-card">
           <div class="experience-date">2025.09 — 2026.02</div>
-          <div>
-            <h3>VISIT INC · Backend Development Intern</h3>
-            <p>360° 가상투어 SaaS Roundpic.io 개발에 참여해 요금제 가입·변경·해지, 리소스 사용량, 예상 결제금액 및 결제이력 API와 권한 검증 구조를 개발했습니다.</p>
+          <div class="experience-main">
+            <div class="experience-title-row">
+              <div>
+                <span class="experience-company">VISIT INC</span>
+                <h3>Roundpic.io Backend Development Intern</h3>
+              </div>
+              <span class="experience-duration">6 Months</span>
+            </div>
+            <p>
+              Roundpic은 스마트폰·360° 카메라로 촬영한 이미지를 가상투어 콘텐츠로 구성해
+              업체의 실내 공간을 온라인에서 둘러볼 수 있도록 제공하는 서비스입니다.
+              인턴으로 참여해 요금제·사용량·결제 데이터 구조와 API, 권한 검증 로직을 개발하고
+              Insta360 데이터 전처리와 사용자 관점 QA도 수행했습니다.
+            </p>
+            <div class="experience-tags">
+              <span>NestJS Guard</span><span>Subscription API</span><span>MySQL Schema</span><span>360° Data</span><span>QA</span>
+            </div>
             <button class="text-button" type="button" data-project="visit">상세 경험 보기 →</button>
           </div>
         </div>
@@ -128,12 +185,37 @@
     <section class="section" id="skills">
       <div class="container">
         <div class="eyebrow">SKILLS</div>
-        <h2>실제 프로젝트에서 사용한 기술</h2>
+        <h2>기술 스택</h2>
+
+        <div class="programming-panel">
+          <h3>Programming</h3>
+          <div class="language-row">
+            <div class="language-name">Python <span>중상</span></div>
+            <p>사용 기간 5년 · 대부분의 프로젝트에서 메인 언어로 활용</p>
+          </div>
+          <div class="language-row">
+            <div class="language-name">SQL <span>중상</span></div>
+            <p>사용 기간 3년 · 실무·프로젝트에서 활용 · SQLD 보유 · 관련 과목 A+ 이수</p>
+          </div>
+          <div class="language-row">
+            <div class="language-name">TypeScript <span>중하</span></div>
+            <p>사용 기간 6개월 · 실무 Backend 개발에서 주로 활용</p>
+          </div>
+        </div>
+
         <div class="skills-grid">
-          <div class="skill-card"><h3>Programming</h3><p>Python · SQL · TypeScript · Pandas · NumPy</p></div>
-          <div class="skill-card"><h3>ML / Data Science</h3><p>PyTorch · scikit-learn · Transformers · Time Series · Feature Engineering · Model Evaluation</p></div>
-          <div class="skill-card"><h3>Data Engineering</h3><p>Airflow · PySpark · DuckDB · Parquet · ETL · Data Validation</p></div>
-          <div class="skill-card"><h3>Backend / Cloud</h3><p>FastAPI · NestJS · MySQL · AWS · REST API · Git / GitHub</p></div>
+          <div class="skill-card">
+            <h3>ML / Data Science</h3>
+            <p>Pandas · NumPy · PyTorch · scikit-learn · Transformers · KoBERT · KLUE-BERT · Time Series · Feature Engineering · Model Evaluation</p>
+          </div>
+          <div class="skill-card">
+            <h3>Data Engineering</h3>
+            <p>Apache Airflow · PySpark · DuckDB · Parquet · ETL Pipeline · Data Validation · Pipeline Automation</p>
+          </div>
+          <div class="skill-card">
+            <h3>Backend / Cloud</h3>
+            <p>FastAPI · NestJS · MySQL · AWS · REST API · Git · GitHub</p>
+          </div>
         </div>
       </div>
     </section>
@@ -142,30 +224,67 @@
       <div class="container about-grid">
         <div>
           <div class="eyebrow">ABOUT</div>
-          <h2>작게 시작하고, 검증하며, 끝까지 연결합니다.</h2>
+          <h2>실패 비용을 최소화해 실패 속에서 성공으로 나아갑니다.</h2>
         </div>
+
         <div class="about-copy">
-          <p>데이터와 소프트웨어를 함께 다루면서 하나의 분석이나 모델이 실제로 사용되기까지 어떤 과정이 필요한지에 관심을 가지고 있습니다.</p>
-          <p>금융시장 데이터를 직접 수집하고 분석하는 개인 프로젝트를 장기간 이어오며, 큰 목표를 작은 문제로 나누고 검증 결과를 바탕으로 지속적으로 개선하는 방식을 익혀왔습니다.</p>
-          <p>업무 밖에서는 운동을 꾸준히 하고, 관심 있는 내용을 기록하고 정리하는 것을 좋아합니다.</p>
+          <p>
+            처음부터 완벽한 답을 찾기보다 실패했을 때의 비용을 감당할 수 있는 작은 시도부터 시작하고,
+            결과를 검증하며 잘못된 가정을 빠르게 수정하는 방식을 중요하게 생각합니다.
+          </p>
+          <p>
+            주식시장과 투자 데이터에 큰 관심을 가지고 있으며, 약 2년 가까이 매일 시장의 주요 이슈와 제 견해,
+            매매 과정과 결과를 기록하고 정리해오고 있습니다. 정리한 내용을 바탕으로 가끔 주식 정보를 공유하는
+            블로그 활동도 이어가고 있습니다.
+          </p>
+          <p>
+            데이터와 소프트웨어를 함께 다루며 하나의 분석이나 모델이 실제로 사용되기까지 필요한 전체 과정을
+            이해하고 연결하는 Data Scientist로 성장하고자 합니다.
+          </p>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section credentials-section">
       <div class="container credentials">
-        <div><span>Education</span><strong>정보보호학과 · GPA 4.1 / 4.5</strong><p>2018.03 — 2024.02</p></div>
-        <div><span>Training</span><strong>Data Engineering Bootcamp</strong><p>2024.09 — 2025.03</p></div>
-        <div><span>Certifications</span><strong>빅데이터분석기사 · SQLD · ADsP</strong><p>네트워크관리사 2급 · TOEIC 920</p></div>
-        <div><span>Awards</span><strong>학술대회 장려상 · 과정 우수 프로젝트</strong><p>프로젝트 및 연구 외부 평가</p></div>
+        <div class="credential-card">
+          <span>Education</span>
+          <strong>중부대학교 · 정보보호학과</strong>
+          <p>GPA 4.1 / 4.5 · 2018.03 — 2024.02</p>
+        </div>
+
+        <div class="credential-card">
+          <span>Training</span>
+          <strong>Data Engineering Bootcamp</strong>
+          <p>2024.09 — 2025.03</p>
+        </div>
+
+        <div class="credential-card certification-card">
+          <span>Certifications</span>
+          <strong>빅데이터분석기사 · SQLD · ADsP</strong>
+          <p><b>네트워크관리사 2급</b> · <b>TOEIC 920점</b></p>
+        </div>
+
+        <div class="credential-card awards-card">
+          <span>Awards</span>
+          <strong>한국융합보안학회 하계 학술대회 논문 장려상</strong>
+          <p>ML 기반 악성 URL 탐지 연구</p>
+          <strong class="award-second">육군 1군단 헌신 용사상(611호)</strong>
+          <p>업무 편람·훈련 시스템 개선 문서 제작</p>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="container footer-content">
-      <div><strong>데이터를 실제 문제 해결과 연결하고 싶습니다.</strong><p>프로젝트의 상세한 판단 과정은 각 Case Study에서 확인할 수 있습니다.</p></div>
-      <a class="button" href="mailto:kangms3158@gmail.com">kangms3158@gmail.com</a>
+      <strong>데이터를 통해 가치를 창출하는 실무적 데이터 전문가로 성장하고 싶습니다.</strong>
+      <div class="footer-actions">
+        <a class="button" href="mailto:kangms3158@gmail.com">Email</a>
+        <a class="button primary"
+           href="https://drive.google.com/file/d/1Ti9-Dzjagppa3P-Sk60Fh5ijHyG6kDAG/view"
+           target="_blank" rel="noreferrer">Resume PDF</a>
+      </div>
     </div>
   </footer>
 
@@ -181,59 +300,259 @@
     </section>
   </div>
 
+  <!-- FINANCE -->
   <template id="project-finance">
     <article class="case-study" data-title="금융 시계열 ML">
-      <img class="case-cover" src="finance.png" alt="금융 시계열 프로젝트 대표 이미지" />
+      <div class="case-cover-wrap">
+        <img class="case-cover" src="finance.png" alt="금융 시계열 프로젝트 대표 이미지" />
+        <span class="case-status">현재 진행중</span>
+      </div>
       <span class="project-kicker">PERSONAL PROJECT · 2025.07 — PRESENT</span>
       <h2 id="modal-title">시장 미시구조 기반 금융 시계열 예측 모델 및 데이터 파이프라인</h2>
-      <p class="case-summary">약 1,500개 국내 상장 종목의 장중·일별 데이터를 직접 수집하고 품질을 검증한 뒤, 시계열 ML의 OOS 성능과 실제 활용 가능성을 반복 검증하는 장기 개인 프로젝트입니다.</p>
-      <div class="case-metrics"><div><strong>1,500+</strong><span>종목</span></div><div><strong>80M+</strong><span>1분 레코드</span></div><div><strong>&lt;1%</strong><span>정상 거래 종목 누락률</span></div><div><strong>20× / 2.5×</strong><span>저장 / 처리 개선</span></div></div>
-      <section><h3>Problem</h3><p>공개 데이터셋으로 모델링만 수행하면 실제 시장의 데이터 누락, API 제한, 수집 지연과 시점 정합성 문제를 경험하기 어렵다고 판단했습니다. 그래서 수집부터 평가까지 직접 연결했습니다.</p></section>
-      <section><h3>Data & Pipeline</h3><p>Kiwoom OpenAPI를 이용해 OHLCV뿐 아니라 체결강도, 프로그램 수급, 호가, 외국인·기관 수급, 신용·공매도 등 시장 미시구조 데이터를 수집합니다. 수집 → 검증 → 저장 → 피처링 → 모델 입력 → 시간 순 OOS 평가 흐름을 운영합니다.</p></section>
-      <section><h3>Engineering</h3><p>장기간 누적되는 데이터의 저장공간과 반복 피처링 비용을 줄이기 위해 Parquet·DuckDB 기반 구조와 Sparse 저장을 적용했고, 내부 기준으로 저장 효율 약 20배와 피처 처리 속도 약 2.5배 개선을 확인했습니다.</p></section>
-      <section><h3>Validation</h3><p>Random Split보다 시간 순서를 유지하는 Train → Validation → Out-of-Sample 평가를 사용합니다. 2026년을 포함한 OOS 구간에서 거래비용 반영 전 20거래일 단순 평균 수익률 2%대 이상의 결과를 일부 검증에서 확인했고, 거래비용·슬리피지·시장 국면별 안정성을 추가 확인 중입니다.</p></section>
-      <section><h3>What Didn't Work</h3><p>초기에는 높은 백테스트 성과가 실제 매수하기 어려운 급등 구간에 집중되는 문제를 확인했습니다. 이후 체결 가능성과 후보 정의를 평가 과정에 포함하고, 미래 데이터 누출과 시장 국면 편향을 더 엄격하게 점검하는 방향으로 수정했습니다.</p></section>
+      <p class="case-summary">
+        국내 상장주식 약 1,500종목의 실시간·일봉 데이터를 직접 수집하고 검증해,
+        금융 시계열 예측 모델 연구와 실제 매매 가능성 검증까지 연결하는 장기 개인 프로젝트입니다.
+      </p>
+
+      <div class="case-metrics">
+        <div><strong>1,500+</strong><span>종목 데이터</span></div>
+        <div><strong>80M+</strong><span>1분 레코드</span></div>
+        <div><strong>&lt; 1%</strong><span>정상 거래 종목 누락률</span></div>
+        <div><strong>~30 sec</strong><span>1분 데이터 수집·처리</span></div>
+      </div>
+
+      <section>
+        <h3>Problem & Goal</h3>
+        <p>
+          단순 OHLCV만으로 모델을 만드는 것이 아니라 체결강도·프로그램 수급·호가·외국인/기관 수급·신용잔고율·공매도율 등
+          한국시장 특화 데이터를 직접 확보하고, 데이터 품질부터 모델의 실제 활용 가능성까지 함께 검증하는 것을 목표로 했습니다.
+        </p>
+      </section>
+
+      <section>
+        <h3>Data Collection & Quality</h3>
+        <ul>
+          <li>키움 OpenAPI 기반 약 1,500종목 실시간·일봉 데이터 수집</li>
+          <li>1분 데이터 8,000만 건 이상 누적</li>
+          <li>API 요청 순서 최적화와 데이터 검증·이중 저장 구조 적용</li>
+          <li>정상 거래 종목 기준 누락률 1% 미만 관리</li>
+          <li>약 1,500종목의 1분 데이터를 30초 이내 수집·처리하도록 최적화</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Storage & Feature Pipeline</h3>
+        <p>
+          데이터 누적 규모가 커지면서 Parquet·DuckDB 기반 저장·조회 구조를 적용하고,
+          대규모 Grid Feature는 Sparse 방식으로 저장했습니다.
+          내부 비교 기준으로 저장공간 효율을 기존 대비 20배 이상 개선하고 피처링 처리속도를 약 2.5배 향상했습니다.
+        </p>
+      </section>
+
+      <section>
+        <h3>Modeling & Validation</h3>
+        <p>
+          가격·거래량·수급·거래활성도·시장 및 산업 상대강도 등 여러 피처와 후보 필터링 방식을 시간 순서 기반으로 반복 검증하고 있습니다.
+          2026년을 포함한 OOS 구간의 일부 검증에서 거래비용 반영 전 20거래일 단순 평균 수익률 2%대 이상의 결과를 확인했으며,
+          거래비용·슬리피지·시장 국면 변화까지 포함한 추가 검증을 진행 중입니다.
+        </p>
+      </section>
+
+      <section class="case-emphasis">
+        <h3>좋은 결과를 의심하고 평가 방식을 다시 설계</h3>
+        <p>
+          초기 백테스트에서 높은 성과가 나왔지만, 추가 확인 과정에서 수익의 상당 부분이 실제 매수가 어려운 급등 가격대에 집중된 문제를 발견했습니다.
+          이후 체결 가능성과 실전성을 평가 기준에 포함하고 OOS 검증과 후보 선별 구조를 다시 설계했습니다.
+          성능 수치 자체보다 결과가 실제 환경에서도 재현 가능한지를 확인하는 방향으로 프로젝트의 기준을 바꾼 경험입니다.
+        </p>
+      </section>
+
+      <section>
+        <h3>Tech Stack</h3>
+        <p>Python · PyTorch · Pandas · NumPy · Kiwoom OpenAPI · DuckDB · Parquet</p>
+      </section>
     </article>
   </template>
 
-  <template id="project-review">
-    <article class="case-study" data-title="리뷰 NLP">
-      <img class="case-cover contain" src="review.png" alt="리뷰 분석 서비스 화면" />
-      <span class="project-kicker">TEAM PROJECT · 2025.01 — 2025.03</span>
-      <h2 id="modal-title">실시간 웹쇼핑몰 리뷰 종합 및 분석 서비스</h2>
-      <p class="case-summary">쇼핑몰 리뷰를 자동으로 수집·처리하고 감성·토픽을 분석한 뒤, 결과를 요약과 대시보드로 전달한 End-to-End NLP 프로젝트입니다.</p>
-      <div class="case-metrics"><div><strong>93%</strong><span>KoBERT Accuracy</span></div><div><strong>97%</strong><span>Negative NPV</span></div><div><strong>95%</strong><span>KLUE-BERT Accuracy</span></div><div><strong>Award</strong><span>우수 프로젝트</span></div></div>
-      <section><h3>Pipeline</h3><p>Selenium·BeautifulSoup 크롤러에서 시작해 Airflow ETL, PySpark 전처리, MySQL 적재, KoBERT·KLUE-BERT 모델링, FastAPI, OpenAI 요약, Chart.js 시각화까지 연결했습니다.</p></section>
-      <section><h3>My Role</h3><p>크롤링 로직을 주도하고 감성분석·토픽 분류 모델링과 파이프라인 자동화, 서비스 연동에 참여했습니다.</p></section>
-      <section><h3>Modeling</h3><p>KoBERT 기반 감성분석 Accuracy 93%, 부정 클래스 NPV 97%, KLUE-BERT 기반 토픽 분류 Accuracy 95%를 확인했습니다. 제한된 AWS GPU 환경에서는 AMP 적용과 학습 일정 조율로 OOM 문제를 완화했습니다.</p></section>
-      <section><h3>What I Learned</h3><p>좋은 모델 자체보다 수집된 데이터가 어떻게 처리되고 제한된 인프라에서 안정적으로 학습되며, 분석 결과가 사용자에게 어떻게 전달되는지까지 연결해야 실제 서비스가 된다는 점을 경험했습니다.</p></section>
-    </article>
-  </template>
-
+  <!-- VISIT -->
   <template id="project-visit">
     <article class="case-study" data-title="VISIT Backend">
-      <img class="case-cover contain" src="visit.png" alt="VISIT 360VR 프로젝트 화면" />
-      <span class="project-kicker">VISIT INC · 2025.09 — 2026.02</span>
-      <h2 id="modal-title">Roundpic.io Backend Development</h2>
-      <p class="case-summary">360° 이미지 기반 가상투어 SaaS에서 요금제·권한·사용량·결제 흐름을 다루는 Backend 기능을 개발했습니다.</p>
-      <section><h3>Problem</h3><p>기존 수기 중심의 가입·권한 확인 과정을 사용자가 직접 처리하고 서버가 요금제 상태와 사용량에 따라 권한을 판단하는 구조로 전환하기 위한 기능을 제안·개발했습니다.</p></section>
-      <section><h3>Backend</h3><p>요금제 가입·변경·해지, 리소스 사용량 조회, 예상 결제금액과 결제이력 API를 설계·구현했고 NestJS Guard를 이용해 기존 API와 충돌을 최소화하는 권한 검증 로직을 구성했습니다.</p></section>
-      <section><h3>Database</h3><p>사용자별 요금제 상태, 사용량, 결제이력을 추적할 수 있도록 MySQL 기반 데이터 구조를 설계했습니다.</p></section>
-      <section><h3>Other Work</h3><p>Insta360 촬영 데이터 전처리와 사용자 관점 QA를 수행하며 API·DB뿐 아니라 서비스 전체 흐름을 이해했습니다.</p></section>
+      <img class="case-cover contain" src="visit.png" alt="Roundpic 서비스 화면" />
+      <span class="project-kicker">BACKEND INTERNSHIP · 2025.09 — 2026.02</span>
+      <h2 id="modal-title">VISIT INC · Roundpic.io Backend Development</h2>
+      <p class="case-summary">
+        Roundpic은 스마트폰이나 360° 카메라로 촬영한 이미지를 가상투어 콘텐츠로 구성해
+        다양한 업체의 실내 공간을 온라인에서 소개하고 실제 방문으로 연결하는 서비스입니다.
+      </p>
+
+      <div class="case-metrics">
+        <div><strong>6 Months</strong><span>Backend Internship</span></div>
+        <div><strong>NestJS</strong><span>REST API / Guard</span></div>
+        <div><strong>MySQL</strong><span>요금제·사용량·결제</span></div>
+        <div><strong>360°</strong><span>Insta360 Data</span></div>
+      </div>
+
+      <section>
+        <h3>회원별 요금제 관리 API</h3>
+        <p>
+          기존 수기 중심의 가입·권한 확인 프로세스를 정리하고, 사용자가 직접 가입하며 서버가 요금제 상태와 사용량을 기준으로
+          권한을 판단할 수 있는 구조로 전환하기 위한 API와 데이터 구조를 설계·개발했습니다.
+        </p>
+        <ul>
+          <li>요금제 가입·변경·해지, 리소스 사용량 조회</li>
+          <li>예상 결제금액 및 결제이력 관리 API</li>
+          <li>요금제 상태와 리소스 사용량을 기준으로 한 권한 검증</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>NestJS Guard & MySQL</h3>
+        <p>
+          NestJS Guard 기반 권한 검증 로직을 구현해 기존 API와의 충돌을 최소화하고 확장을 고려했습니다.
+          사용자별 요금제 상태·사용량·결제이력을 추적할 수 있도록 MySQL 테이블과 관계를 설계했습니다.
+        </p>
+      </section>
+
+      <section>
+        <h3>개발팀 협업</h3>
+        <p>
+          Notion에 정리된 Frontend·Design 팀의 API 요구사항과 버그를 확인해 백엔드 서버에 반영하고,
+          서비스 사용자 관점의 QA 결과를 관련 팀과 공유했습니다.
+        </p>
+      </section>
+
+      <section>
+        <h3>360° 데이터 전처리 & QA</h3>
+        <p>
+          Insta360 촬영 데이터를 MP4, 위치 정보가 포함된 GPX, 이미지 형태로 전처리하는 작업을 지원했으며
+          사용자 관점 QA를 통해 오류·오타·기능 개선 사항을 찾아 수정하거나 관련 부서에 전달했습니다.
+        </p>
+      </section>
+
+      <section>
+        <h3>Tech Stack</h3>
+        <p>NestJS · TypeScript · Python · MySQL · AWS</p>
+      </section>
     </article>
   </template>
 
+  <!-- REVIEW NLP -->
+  <template id="project-review">
+    <article class="case-study" data-title="리뷰 NLP / Data Engineering">
+      <img class="case-cover contain" src="review.png" alt="웹쇼핑몰 리뷰 분석 서비스 화면" />
+      <span class="project-kicker">MULTICAMPUS DATA ENGINEERING · 2025.01 — 2025.03</span>
+      <h2 id="modal-title">실시간 웹쇼핑몰 리뷰 종합 및 분석 서비스</h2>
+      <p class="case-summary">
+        웹 쇼핑몰 리뷰를 자동으로 수집해 감성과 주요 토픽을 분석하고,
+        핵심 내용을 요약·시각화해 판매자가 빠르게 확인할 수 있도록 만든 End-to-End AI 서비스 프로젝트입니다.
+      </p>
+
+      <div class="case-metrics">
+        <div><strong>93%</strong><span>KoBERT Accuracy</span></div>
+        <div><strong>97%</strong><span>Negative NPV</span></div>
+        <div><strong>95%</strong><span>KLUE-BERT Accuracy</span></div>
+        <div><strong>Award</strong><span>과정 우수 프로젝트</span></div>
+      </div>
+
+      <section>
+        <h3>Data Collection & ETL</h3>
+        <p>
+          Selenium·BeautifulSoup 기반으로 동적·정적 쇼핑몰 페이지의 리뷰 크롤링 로직 구현을 주도했습니다.
+          Airflow 기반 수집 → 전처리 → 적재 ETL 파이프라인 자동화에도 참여했습니다.
+        </p>
+      </section>
+
+      <section>
+        <h3>NLP Modeling</h3>
+        <ul>
+          <li>KoBERT 감성분석 모델 Accuracy 93%</li>
+          <li>부정 리뷰 확인 지표 NPV 97%</li>
+          <li>KLUE-BERT 토픽 분류 Accuracy 95%</li>
+        </ul>
+        <p>
+          리뷰의 긍정 편향을 고려해 부정 리뷰 판별 성능을 별도로 확인하고,
+          서비스 목적에 맞춰 단순 전체 정확도 외의 평가 지표도 함께 확인했습니다.
+        </p>
+      </section>
+
+      <section>
+        <h3>Resource Constraint & Troubleshooting</h3>
+        <p>
+          여러 팀원이 동일한 AWS EC2 GPU 환경을 공유하면서 OOM과 파일 충돌 문제가 발생했습니다.
+          팀원 간 학습 일정을 조율하고 저장 방식을 정리했으며, torch.cuda.amp를 적용해
+          프로젝트 내부 측정 기준 GPU 자원 사용량을 약 20% 절감해 제한된 환경에서 학습을 안정화했습니다.
+        </p>
+      </section>
+
+      <section>
+        <h3>Service Integration</h3>
+        <p>
+          분석 결과를 FastAPI와 연결하고, OpenAI API 기반 리뷰 요약과 Chart.js 시각화를 통해
+          사용자가 대량의 리뷰를 빠르게 이해할 수 있는 대시보드 형태로 제공했습니다.
+          최종 프로젝트는 Data Engineering 과정 우수 프로젝트로 선정됐습니다.
+        </p>
+      </section>
+
+      <section>
+        <h3>Tech Stack</h3>
+        <p>Python · PyTorch · Transformers · Airflow · PySpark · FastAPI · MySQL · AWS · OpenAI API</p>
+      </section>
+    </article>
+  </template>
+
+  <!-- MALICIOUS URL -->
   <template id="project-malicious">
-    <article class="case-study" data-title="악성 URL ML">
+    <article class="case-study" data-title="악성 URL ML / Research">
       <img class="case-cover contain" src="malicious.png" alt="악성 URL 판별 서비스 화면" />
       <span class="project-kicker">UNDERGRADUATE CAPSTONE · 2023.04 — 2023.10</span>
       <h2 id="modal-title">Machine Learning 기반 악성 URL 판별 서비스</h2>
-      <p class="case-summary">최신 악성 URL 데이터를 지속적으로 반영하고 전통 ML 모델을 비교하며 Feature를 분석한 학부 연구 프로젝트입니다.</p>
-      <div class="case-metrics"><div><strong>90%+</strong><span>Held-out Accuracy</span></div><div><strong>OpenPhish</strong><span>최신 악성 URL</span></div><div><strong>ML</strong><span>모델 비교</span></div><div><strong>Award</strong><span>학술대회 장려상</span></div></div>
-      <section><h3>Problem</h3><p>악성 URL 패턴은 계속 변하기 때문에 과거 데이터만으로 학습한 모델의 성능이 시간이 지나며 약해질 수 있다는 문제에서 시작했습니다.</p></section>
-      <section><h3>Data Update</h3><p>Kaggle 초기 데이터에 OpenPhish 최신 악성 URL을 수집하고 문자열·도메인 기반 Feature를 추출해 데이터셋을 갱신하고 모델을 재학습하는 구조를 만들었습니다.</p></section>
-      <section><h3>Model & Feature Analysis</h3><p>scikit-learn 기반 여러 전통 ML 모델과 Ensemble을 비교하고, 보안 논문을 참고해 Feature를 선별하고 기여도를 분석했습니다.</p></section>
-      <section><h3>Result</h3><p>학습에 사용하지 않은 Test Set에서 90% 이상의 정확도를 확인했고, 결과를 논문으로 정리해 한국융합보안학회 학술대회 장려상을 수상했습니다.</p></section>
+      <p class="case-summary">
+        최신 악성 URL이 가지는 문자열·도메인 특성을 연구하고 의미 있는 피처를 선별해,
+        여러 머신러닝 모델을 비교한 뒤 신규 URL의 악성 여부를 판별하는 연구형 프로젝트입니다.
+      </p>
+
+      <div class="case-metrics">
+        <div><strong>90%+</strong><span>Held-out Test Accuracy</span></div>
+        <div><strong>OpenPhish</strong><span>최신 악성 URL</span></div>
+        <div><strong>ML</strong><span>모델·앙상블 비교</span></div>
+        <div><strong>Award</strong><span>학술대회 논문 장려상</span></div>
+      </div>
+
+      <section>
+        <h3>최신 데이터 수집과 모델 업데이트</h3>
+        <p>
+          Kaggle 기반 정상·악성 URL 데이터셋으로 베이스 모델을 구축하고,
+          OpenPhish에서 최신 악성 URL을 수집해 피처를 추출한 뒤 데이터셋에 반영하고 모델을 재학습하는 구조를 만들었습니다.
+        </p>
+      </section>
+
+      <section>
+        <h3>Feature Engineering & Model Comparison</h3>
+        <p>
+          Decision Tree, KNN, Gaussian Naive Bayes, Logistic Regression, AdaBoost, Gradient Boosting 등
+          scikit-learn 기반 여러 모델과 앙상블 방식을 비교했습니다.
+          최신 보안 논문을 참고해 문자열·도메인 피처를 선별하고 피처 기여도를 확인해 과적합을 줄이는 방향으로 반복 검증했습니다.
+        </p>
+      </section>
+
+      <section>
+        <h3>Result & Research</h3>
+        <p>
+          학습에 사용하지 않은 테스트 데이터에서 90% 이상의 정확도를 확인했습니다.
+          최종 모델의 피처별 기여도와 악성 URL 패턴 분석 결과를 논문으로 정리해
+          한국융합보안학회 하계 학술대회 논문 장려상을 수상했습니다.
+        </p>
+      </section>
+
+      <section>
+        <h3>Service</h3>
+        <p>선별된 모델을 이용해 입력 URL의 악성 여부를 판별하는 기능을 Web·GUI 형태로 구현했습니다.</p>
+      </section>
+
+      <section>
+        <h3>Tech Stack</h3>
+        <p>Python · scikit-learn · Pandas · NumPy · joblib · OpenPhish</p>
+      </section>
     </article>
   </template>
 
